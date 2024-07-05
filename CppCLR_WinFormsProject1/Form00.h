@@ -1,5 +1,6 @@
 #pragma once
-
+#include "Form1.h"
+#include "Form4.h"
 
 namespace CppCLRWinFormsProject {
 
@@ -90,9 +91,10 @@ namespace CppCLRWinFormsProject {
 	}
 	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		Form1 ^ form1 = gcnew Form1();
-		form1->Show();
-		this->Visible = false;
+		this->Hide();
+		Form1^ form1 = gcnew Form1();
+		form1->ShowDialog();
+		this->Show();
 	}
 	};
 }

@@ -1,5 +1,7 @@
 #pragma once
 #include "Form2.h"
+#include <string>
+
 
 
 namespace CppCLRWinFormsProject {
@@ -10,6 +12,7 @@ namespace CppCLRWinFormsProject {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	
 
 	/// <summary>
 	/// Summary for Form1
@@ -20,14 +23,53 @@ namespace CppCLRWinFormsProject {
 		Form1(void)
 		{
 			InitializeComponent();
+			//LoadImages();
 			//
 			//TODO: Add the constructor code here
 			//
 			iSlide = 0;
 			bool secondChanseUsed = false;
+			isRunning = false;
+			elapsedSeconds = 0;
+			
 			
 		}
+		/*void Form1::LoadImages() {
+			std::string imagePath1 = "Images\\Picture01.png";
+			System::String^ imagePathManaged1 = gcnew System::String(imagePath1.c_str());
+			LoadImageIntoPictureBox(this->pictureBox1, imagePath1);
+			
+			std::string imagePath3 = "Images\\icon.jpg";
+			System::String^ imagePathManaged3 = gcnew System::String(imagePath3.c_str());
+			LoadImageIntoPictureBox(this->pictureBox3, imagePath3);
+			
+			std::string imagePath4 = "Images\\50on50.jpg";
+			System::String^ imagePathManaged4 = gcnew System::String(imagePath4.c_str());
+			LoadImageIntoPictureBox(this->pictureBox4, imagePath4);
+			
+			std::string imagePath5 = "Images\\PPLhelp.jpg";
+			System::String^ imagePathManaged5 = gcnew System::String(imagePath5.c_str());
+			LoadImageIntoPictureBox(this->pictureBox5, imagePath5);
+			
+			std::string imagePath6 = "Images\\2x.png";
+			System::String^ imagePathManaged6 = gcnew System::String(imagePath6.c_str());
+			LoadImageIntoPictureBox(this->pictureBox6, imagePath6);
+		}
 
+		void Form1::LoadImageIntoPictureBox(PictureBox^ pictureBox, std::string imagePath)
+		{
+			System::String^ imagePathManaged = gcnew System::String(imagePath.c_str());
+			if (System::IO::File::Exists(imagePathManaged))
+			{
+				pictureBox->Image = Image::FromFile(imagePathManaged);
+				pictureBox->SizeMode = PictureBoxSizeMode::StretchImage;
+			}
+			else
+			{
+				MessageBox::Show("Image file not found: " + imagePathManaged, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			}
+		}
+		*/
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -47,6 +89,18 @@ namespace CppCLRWinFormsProject {
 
 
 	private: System::Windows::Forms::ImageList^ imageList1;
+	private:
+		
+		System::Windows::Forms::Label^ timeLabel;
+		System::Windows::Forms::Timer^ timer;
+		System::Boolean isRunning;
+		System::Int32 elapsedSeconds;
+		System::ComponentModel::Container^ componentsContainer;
+
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		
 
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
 	private: System::Windows::Forms::PictureBox^ pictureBox3;
@@ -67,11 +121,13 @@ namespace CppCLRWinFormsProject {
 
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Label^ label2;
+
 	private: System::Windows::Forms::RadioButton^ radioButton1;
 	private: System::Windows::Forms::RadioButton^ radioButton3;
 	private: System::Windows::Forms::RadioButton^ radioButton4;
 	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::Label^ label2;
+private: System::Windows::Forms::Label^ label4;
 
 
 
@@ -146,11 +202,14 @@ namespace CppCLRWinFormsProject {
 			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButton3 = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButton4 = (gcnew System::Windows::Forms::RadioButton());
 			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->timeLabel = (gcnew System::Windows::Forms::Label());
+			this->timer = (gcnew System::Windows::Forms::Timer(this->components));
+			this->label4 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
@@ -163,9 +222,9 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->imageList1->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imageList1.ImageStream")));
 			this->imageList1->TransparentColor = System::Drawing::Color::Transparent;
-			this->imageList1->Images->SetKeyName(0, L"imagesCAG5P2IF.jpg");
-			this->imageList1->Images->SetKeyName(1, L"jpge50.jpg");
-			this->imageList1->Images->SetKeyName(2, L"jpge50X.jpg");
+			this->imageList1->Images->SetKeyName(0, L"2x.jpg");
+			this->imageList1->Images->SetKeyName(1, L"50on50.jpg");
+			this->imageList1->Images->SetKeyName(2, L"icon.jpg");
 			this->imageList1->Images->SetKeyName(3, L"jpgePeople.jpg");
 			this->imageList1->Images->SetKeyName(4, L"jpgePeopleX.jpg");
 			this->imageList1->Images->SetKeyName(5, L"jpgePhone.jpg");
@@ -188,6 +247,7 @@ namespace CppCLRWinFormsProject {
 			this->imageList1->Images->SetKeyName(22, L"Picture14.png");
 			this->imageList1->Images->SetKeyName(23, L"Picture15.png");
 			this->imageList1->Images->SetKeyName(24, L"Layout.png");
+			this->imageList1->Images->SetKeyName(25, L"PPLhelp.jpg");
 			// 
 			// pictureBox2
 			// 
@@ -217,7 +277,7 @@ namespace CppCLRWinFormsProject {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(813, 35);
 			this->button1->TabIndex = 10;
-			this->button1->Text = L"0";
+			this->button1->Text = L"Start";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &Form1::button1_Click);
 			// 
@@ -289,17 +349,6 @@ namespace CppCLRWinFormsProject {
 			this->label1->TabIndex = 18;
 			this->label1->Text = L"label1";
 			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->BackColor = System::Drawing::Color::Gainsboro;
-			this->label2->ForeColor = System::Drawing::Color::Cyan;
-			this->label2->Location = System::Drawing::Point(340, 288);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(44, 16);
-			this->label2->TabIndex = 19;
-			this->label2->Text = L"label2";
-			// 
 			// radioButton1
 			// 
 			this->radioButton1->Appearance = System::Windows::Forms::Appearance::Button;
@@ -356,17 +405,56 @@ namespace CppCLRWinFormsProject {
 			this->label3->TabIndex = 23;
 			this->label3->Text = L"round";
 			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->BackColor = System::Drawing::Color::Gainsboro;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label2->Location = System::Drawing::Point(536, 272);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(64, 25);
+			this->label2->TabIndex = 24;
+			this->label2->Text = L"label2";
+			// 
+			// timeLabel
+			// 
+			this->timeLabel->AutoSize = true;
+			this->timeLabel->BackColor = System::Drawing::Color::WhiteSmoke;
+			this->timeLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16));
+			this->timeLabel->Location = System::Drawing::Point(62, 120);
+			this->timeLabel->Name = L"timeLabel";
+			this->timeLabel->Size = System::Drawing::Size(120, 31);
+			this->timeLabel->TabIndex = 1;
+			this->timeLabel->Text = L"00:00:00";
+			// 
+			// timer
+			// 
+			this->timer->Interval = 1000;
+			this->timer->Tick += gcnew System::EventHandler(this, &Form1::timer_Tick);
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->BackColor = System::Drawing::Color::White;
+			this->label4->Location = System::Drawing::Point(65, 104);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(82, 16);
+			this->label4->TabIndex = 25;
+			this->label4->Text = L"session time";
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Black;
 			this->ClientSize = System::Drawing::Size(1600, 900);
+			this->Controls->Add(this->label4);
+			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->radioButton4);
 			this->Controls->Add(this->radioButton3);
 			this->Controls->Add(this->radioButton1);
-			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->radioButton2);
@@ -376,6 +464,9 @@ namespace CppCLRWinFormsProject {
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->pictureBox3);
 			this->Controls->Add(this->pictureBox2);
+			this->Controls->Add(this->timeLabel);
+			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
 			this->Name = L"Form1";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Form1";
@@ -392,28 +483,107 @@ namespace CppCLRWinFormsProject {
 		}
 #pragma endregion
 		int iSlide;
+		int clickCount = 0;
+		int money = 0;
+
+		
+
+	private: System::Void timer_Tick(System::Object^ sender, System::EventArgs^ e) {
+		this->elapsedSeconds++;
+		int hours = this->elapsedSeconds / 3600;
+		int minutes = (this->elapsedSeconds % 3600) / 60;
+		int seconds = this->elapsedSeconds % 60;
+		this->timeLabel->Text = String::Format("{0:D2}:{1:D2}:{2:D2}", hours, minutes, seconds);
+	}
+
 	private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
 
 		pictureBox1->Image = imageList1->Images[8];
-		pictureBox3->Image = imageList1->Images[0];
+		pictureBox3->Image = imageList1->Images[2];
 		pictureBox4->Image = imageList1->Images[1];
-		pictureBox5->Image = imageList1->Images[3];
-		//pictureBox6->Image = imageList1->Images[4];
+		pictureBox5->Image = imageList1->Images[25];
+		pictureBox6->Image = imageList1->Images[0];
 
 		radioButton1->Checked = false;
 		radioButton2->Checked = false;
 		radioButton3->Checked = false;
 		radioButton4->Checked = false;
+
+		
+		label2->Text = "$0";
+		
+		if (button1->Text == "1") {
+			money = 0;
+			label2->Text = "$0";
+		}
+		if (button1->Text == "2") {
+			money = 100;
+			label2->Text = "$100";
+		}
+		if (button1->Text == "3") {
+			money = 200;
+			label2->Text = "$200";
+		}
+		if (button1->Text == "4") {
+			money = 300;
+			label2->Text = "$300";
+		}
+		if (button1->Text == "5") {
+			money = 500;
+			label2->Text = "$500";
+		}
+		if (button1->Text == "6") {
+			money = 1000;
+			label2->Text = "$1000";
+		}
+		if (button1->Text == "7") {
+			money = 2000;
+			label2->Text = "$2000";
+		}
+		if (button1->Text == "8") {
+			money = 4000;
+			label2->Text = "$4000";
+		}
+		if (button1->Text == "9") {
+			money = 8000;
+			label2->Text = "$8000";
+		}
+		if (button1->Text == "10") {
+			money = 16000;
+			label2->Text = "$16000";
+		}
+		if (button1->Text == "11") {
+			money = 32000;
+			label2->Text = "$32000";
+		}
+		if (button1->Text == "12") {
+			money = 64000;
+			label2->Text = "$64000";
+		}
+		if (button1->Text == "13") {
+			money = 125000;
+			label2->Text = "$125000";
+		}
+		if (button1->Text == "14") {
+			money = 250000;
+			label2->Text = "$250000";
+		}
+		if (button1->Text == "15") {
+			money = 500000;
+			label2->Text = "$500000";
+		}
 	}
 
+	
 private: System::Void pictureBox4_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	
-	if (button1->Text == "0") {
+	if (button1->Text == "start/restart") {
 		pictureBox4->Image = imageList1->Images[1];
+		
 	}
 	else {
-		pictureBox4->Image = imageList1->Images[2];
+		pictureBox4->Image = imageList1->Images[3];
 	}
 
 	if (button1->Text == "1") 
@@ -421,48 +591,56 @@ private: System::Void pictureBox4_Click(System::Object^ sender, System::EventArg
 		radioButton1->Visible = false;
 		radioButton2->Visible = false;
 		pictureBox4->Enabled = false;
+		
 	}
 	if (button1->Text == "2")
 	{
 		radioButton1->Visible = false;
 		radioButton4->Visible = false;
 		pictureBox4->Enabled = false;
+		
 	}
 	if (button1->Text == "3")
 	{
 		radioButton2->Visible = false;
 		radioButton4->Visible = false;
 		pictureBox4->Enabled = false;
+		
 	}
 	if (button1->Text == "4")
 	{
 		radioButton2->Visible = false;
 		radioButton3->Visible = false;
 		pictureBox4->Enabled = false;
+		
 	}
 	if (button1->Text == "5")
 	{
 		radioButton1->Visible = false;
 		radioButton4->Visible = false;
 		pictureBox4->Enabled = false;
+		
 	}
 	if (button1->Text == "6")
 	{
 		radioButton1->Visible = false;
 		radioButton2->Visible = false;
 		pictureBox4->Enabled = false;
+		
 	}
 	if (button1->Text == "7")
 	{
 		radioButton1->Visible = false;
 		radioButton3->Visible = false;
 		pictureBox4->Enabled = false;
+		
 	}
 	if (button1->Text == "8")
 	{
 		radioButton3->Visible = false;
 		radioButton4->Visible = false;
 		pictureBox4->Enabled = false;
+		
 	}
 
 	if (button1->Text == "9")
@@ -470,42 +648,49 @@ private: System::Void pictureBox4_Click(System::Object^ sender, System::EventArg
 		radioButton2->Visible = false;
 		radioButton4->Visible = false;
 		pictureBox4->Enabled = false;
+		
 	}
 	if (button1->Text == "10")
 	{
 		radioButton1->Visible = false;
 		radioButton3->Visible = false;
 		pictureBox4->Enabled = false;
+		
 	}
 	if (button1->Text == "11")
 	{
 		radioButton3->Visible = false;
 		radioButton4->Visible = false;
 		pictureBox4->Enabled = false;
+		
 	}
 	if (button1->Text == "12")
 	{
 		radioButton1->Visible = false;
 		radioButton2->Visible = false;
 		pictureBox4->Enabled = false;
+		
 	}
 	if (button1->Text == "13")
 	{
 		radioButton2->Visible = false;
 		radioButton3->Visible = false;
 		pictureBox4->Enabled = false;
+		
 	}
 	if (button1->Text == "14")
 	{
 		radioButton1->Visible = false;
 		radioButton3->Visible = false;
 		pictureBox4->Enabled = false;
+		
 	}
 	if (button1->Text == "15")
 	{
 		radioButton1->Visible = false;
 		radioButton2->Visible = false;
 		pictureBox4->Enabled = false;
+		
 	}
 
 
@@ -658,8 +843,6 @@ private: System::Void Question15() {
 
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 
-
-	label2->Text = "";
 	radioButton1->Checked = false;
 	radioButton2->Checked = false;
 	radioButton3->Checked = false;
@@ -674,6 +857,24 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	radioButton2->BackColor = System::Drawing::Color::Black;
 	radioButton3->BackColor = System::Drawing::Color::Black;
 	radioButton4->BackColor = System::Drawing::Color::Black;
+
+	if (this->isRunning)
+	{
+
+		this->button1->Text = L"restart";
+	}
+		else if (this->button1->Text == "restart") {
+		this->elapsedSeconds = 0;
+		this->timeLabel->Text = "00:00:00";
+	
+	}
+	else
+	{
+		this->timer->Start();
+
+	}
+	this->isRunning = !this->isRunning;
+
 
 	iSlide += 1;
 
@@ -986,75 +1187,74 @@ private: System::Void radioButton1_CheckedChanged(System::Object^ sender, System
 
 
 	//=========================InCorrect Answer=============================
-	if ((button1->Text == "10" || button1->Text == "2" || button1->Text == "14") && (radioButton1->Checked == true))
+	if ((button1->Text == "10" || button1->Text == "2" || button1->Text == "14") && (radioButton1->Checked == true) && !(pictureBox6->Focused))
 	{
 		radioButton1->BackColor = System::Drawing::Color::Red;
 		pictureBox1->Image = imageList1->Images[8];
 		iSlide = 0;
 		button1->Enabled = true;
-		button1->Text = "0";
+		button1->Text = "restart";
 		
 		Question1();
 		pictureBox4->Enabled = true;
 		pictureBox5->Enabled = true;
 		pictureBox4->Image = imageList1->Images[1];
-		pictureBox5->Image = imageList1->Images[3];
+		pictureBox5->Image = imageList1->Images[25];
 	}
-	if ((button1->Text == "8" || button1->Text == "5" || button1->Text == "6") && (radioButton1->Checked == true))
+	if ((button1->Text == "8" || button1->Text == "5" || button1->Text == "6") && (radioButton1->Checked == true) && !(pictureBox6->Focused))
 	{
 		radioButton1->BackColor = System::Drawing::Color::Red;
 		pictureBox1->Image = imageList1->Images[8];
 		iSlide = 0;
 		button1->Enabled = true;
-		button1->Text = "0";
+		button1->Text = "restart";
 		
 		Question1();
 		pictureBox4->Enabled = true;
 		pictureBox5->Enabled = true;
 		pictureBox4->Image = imageList1->Images[1];
-		pictureBox5->Image = imageList1->Images[3];
+		pictureBox5->Image = imageList1->Images[25];
 	}
 
-	if ((button1->Text == "6") && (radioButton1->Checked == true)) {
-		label2->Text = "You have just won $1000";
+	if ((button1->Text == "6") && (radioButton1->Checked == true) && !(pictureBox6->Focused)) {
 		radioButton1->BackColor = System::Drawing::Color::Red;
 		pictureBox1->Image = imageList1->Images[8];
 		iSlide = 0;
 		button1->Enabled = true;
-		button1->Text = "0";
+		button1->Text = "restart";
 		
 		Question1();
 		pictureBox4->Enabled = true;
 		pictureBox5->Enabled = true;
 		pictureBox4->Image = imageList1->Images[1];
-		pictureBox5->Image = imageList1->Images[3];
+		pictureBox5->Image = imageList1->Images[25];
 	}
-	if ((button1->Text == "7" || button1->Text == "15" || button1->Text == "1") && (radioButton1->Checked == true))
+	if ((button1->Text == "7" || button1->Text == "15" || button1->Text == "1") && (radioButton1->Checked == true) && !(pictureBox6->Focused))
 	{
 		radioButton1->BackColor = System::Drawing::Color::Red;
 		pictureBox1->Image = imageList1->Images[8];
 		iSlide = 0;
 		button1->Enabled = true;
-		button1->Text = "0";
+		button1->Text = "restart";
 		
 		Question1();
 		pictureBox4->Enabled = true;
 		pictureBox5->Enabled = true;
 		pictureBox4->Image = imageList1->Images[1];
-		pictureBox5->Image = imageList1->Images[3];
+		pictureBox5->Image = imageList1->Images[25];
 	}
-	if ((button1->Text == "12") && (radioButton1->Checked == true)) {
+	if ((button1->Text == "12") && (radioButton1->Checked == true) && !(pictureBox6->Focused)) {
 		radioButton1->BackColor = System::Drawing::Color::Red;
 		pictureBox1->Image = imageList1->Images[8];
 		iSlide = 0;
 		button1->Enabled = true;
-		button1->Text = "0";
+		button1->Text = "restart";
 		
 		Question1();
 		pictureBox4->Enabled = true;
 		pictureBox5->Enabled = true;
 		pictureBox4->Image = imageList1->Images[1];
-		pictureBox5->Image = imageList1->Images[3];
+		pictureBox5->Image = imageList1->Images[25];
 	}
 	
 
@@ -1086,76 +1286,75 @@ private: System::Void radioButton2_CheckedChanged(System::Object^ sender, System
 
 
 	   //=========================InCorrect Answer=============================
-	   if ((button1->Text == "11" || button1->Text == "2" || button1->Text == "3") && (radioButton2->Checked == true))
+	   if ((button1->Text == "11" || button1->Text == "2" || button1->Text == "3") && (radioButton2->Checked == true) && !(pictureBox6->Focused))
 	   {
 		   radioButton2->BackColor = System::Drawing::Color::Red;
 		   pictureBox1->Image = imageList1->Images[8];
 		   iSlide = 0;
 		   button1->Enabled = true;
-		   button1->Text = "0";
+		   button1->Text = "restart";
 		  
 		   Question1();
 		   pictureBox4->Enabled = true;
 		   pictureBox5->Enabled = true;
 		   pictureBox4->Image = imageList1->Images[1];
-		   pictureBox5->Image = imageList1->Images[3];
+		   pictureBox5->Image = imageList1->Images[25];
 	   }
-	   if ((button1->Text == "4" || button1->Text == "15" || button1->Text == "6") && (radioButton2->Checked == true))
+	   if ((button1->Text == "4" || button1->Text == "15" || button1->Text == "6") && (radioButton2->Checked == true) && !(pictureBox6->Focused))
 	   {
 		   radioButton2->BackColor = System::Drawing::Color::Red;
 		   pictureBox1->Image = imageList1->Images[8];
 		   iSlide = 0;
 		   button1->Enabled = true;
-		   button1->Text = "0";
+		   button1->Text = "restart";
 		   
 		   Question1();
 		   pictureBox4->Enabled = true;
 		   pictureBox5->Enabled = true;
 		   pictureBox4->Image = imageList1->Images[1];
-		   pictureBox5->Image = imageList1->Images[3];
+		   pictureBox5->Image = imageList1->Images[25];
 	   }
 
-	   if ((button1->Text == "6") && (radioButton2->Checked == true)) {
-		   label2->Text = "You have just won $1000";
+	   if ((button1->Text == "6") && (radioButton2->Checked == true) && !(pictureBox6->Focused)) {
 		   radioButton2->BackColor = System::Drawing::Color::Red;
 		   pictureBox1->Image = imageList1->Images[8];
 		   iSlide = 0;
 		   button1->Enabled = true;
-		   button1->Text = "0";
+		   button1->Text = "restart";
 		   
 		   Question1();
 		   pictureBox4->Enabled = true;
 		   pictureBox5->Enabled = true;
 		   pictureBox4->Image = imageList1->Images[1];
-		   pictureBox5->Image = imageList1->Images[3];
+		   pictureBox5->Image = imageList1->Images[25];
 	   }
-	   if ((button1->Text == "7" || button1->Text == "12" || button1->Text == "9") && (radioButton2->Checked == true))
+	   if ((button1->Text == "7" || button1->Text == "12" || button1->Text == "9") && (radioButton2->Checked == true) && !(pictureBox6->Focused))
 	   {
 		   radioButton2->BackColor = System::Drawing::Color::Red;
 		   pictureBox1->Image = imageList1->Images[8];
 		   iSlide = 0;
 		   button1->Enabled = true;
-		   button1->Text = "0";
+		   button1->Text = "restart";
 		   
 		   Question1();
 		   pictureBox4->Enabled = true;
 		   pictureBox5->Enabled = true;
 		   pictureBox4->Image = imageList1->Images[1];
-		   pictureBox5->Image = imageList1->Images[3];
+		   pictureBox5->Image = imageList1->Images[25];
 	   }
-	   if ((button1->Text == "13") && (radioButton2->Checked == true))
+	   if ((button1->Text == "13") && (radioButton2->Checked == true) && !(pictureBox6->Focused))
 	   {
 		   radioButton2->BackColor = System::Drawing::Color::Red;
 		   pictureBox1->Image = imageList1->Images[8];
 		   iSlide = 0;
 		   button1->Enabled = true;
-		   button1->Text = "0";
+		   button1->Text = "restart";
 		   
 		   Question1();
 		   pictureBox4->Enabled = true;
 		   pictureBox5->Enabled = true;
 		   pictureBox4->Image = imageList1->Images[1];
-		   pictureBox5->Image = imageList1->Images[3];
+		   pictureBox5->Image = imageList1->Images[25];
 	   }
 
 
@@ -1195,88 +1394,87 @@ private: System::Void radioButton3_CheckedChanged(System::Object^ sender, System
 
 
 	   //=========================InCorrect Answer=============================
-	   if ((button1->Text == "4" || button1->Text == "3") && (radioButton3->Checked == true))
+	   if ((button1->Text == "4" || button1->Text == "3") && (radioButton3->Checked == true) && !(pictureBox6->Focused))
 	   {
 		   radioButton3->BackColor = System::Drawing::Color::Red;
 		   pictureBox1->Image = imageList1->Images[8];
 		   iSlide = 0;
 		   button1->Enabled = true;
-		   button1->Text = "0";
+		   button1->Text = "restart";
 		   
 		   Question1();
 		   pictureBox4->Enabled = true;
 		   pictureBox5->Enabled = true;
 		   pictureBox4->Image = imageList1->Images[1];
-		   pictureBox5->Image = imageList1->Images[3];
+		   pictureBox5->Image = imageList1->Images[25];
 	   }
-	   if ((button1->Text == "15" || button1->Text == "5") && (radioButton3->Checked == true))
+	   if ((button1->Text == "15" || button1->Text == "5") && (radioButton3->Checked == true) && !(pictureBox6->Focused))
 	   {
 		   radioButton3->BackColor = System::Drawing::Color::Red;
 		   pictureBox1->Image = imageList1->Images[8];
 		   iSlide = 0;
 		   button1->Enabled = true;
-		   button1->Text = "0";
+		   button1->Text = "restart";
 		   
 		   Question1();
 		   pictureBox4->Enabled = true;
 		   pictureBox5->Enabled = true;
 		   pictureBox4->Image = imageList1->Images[1];
-		   pictureBox5->Image = imageList1->Images[3];
+		   pictureBox5->Image = imageList1->Images[25];
 	   }
 
-	   if ((button1->Text == "10") && (radioButton3->Checked == true)) {
-		   label2->Text = "You have just won $32000";
+	   if ((button1->Text == "10") && (radioButton3->Checked == true) && !(pictureBox6->Focused)) {
 		   radioButton3->BackColor = System::Drawing::Color::Red;
 		   pictureBox1->Image = imageList1->Images[8];
 		   iSlide = 0;
 		   button1->Enabled = true;
-		   button1->Text = "0";
+		   button1->Text = "restart";
 		  
 		   Question1();
 		   pictureBox4->Enabled = true;
 		   pictureBox5->Enabled = true;
 		   pictureBox4->Image = imageList1->Images[1];
-		   pictureBox5->Image = imageList1->Images[3];
+		   pictureBox5->Image = imageList1->Images[25];
 	   }
-	   if ((button1->Text == "7" || button1->Text == "8" || button1->Text == "9") && (radioButton3->Checked == true))
+	   if ((button1->Text == "7" || button1->Text == "8" || button1->Text == "9") && (radioButton3->Checked == true) && !(pictureBox6->Focused))
 	   {
 		   radioButton3->BackColor = System::Drawing::Color::Red;
 		   pictureBox1->Image = imageList1->Images[8];
 		   iSlide = 0;
 		   button1->Enabled = true;
-		   button1->Text = "0";
+		   button1->Text = "restart";
 		   
 		   Question1();
 		   pictureBox4->Enabled = true;
 		   pictureBox5->Enabled = true;
 		   pictureBox4->Image = imageList1->Images[1];
-		   pictureBox5->Image = imageList1->Images[3];
+		   pictureBox5->Image = imageList1->Images[25];
 	   }
-	   if ((button1->Text == "11" || button1->Text == "13") && (radioButton3->Checked == true)) {
+	   if ((button1->Text == "11" || button1->Text == "13") && (radioButton3->Checked == true) && !(pictureBox6->Focused)) {
 		   radioButton3->BackColor = System::Drawing::Color::Red;
 		   pictureBox1->Image = imageList1->Images[8];
 		   iSlide = 0;
 		   button1->Enabled = true;
-		   button1->Text = "0";
+		   button1->Text = "restart";
 		   
 		   Question1();
 		   pictureBox4->Enabled = true;
 		   pictureBox5->Enabled = true;
 		   pictureBox4->Image = imageList1->Images[1];
-		   pictureBox5->Image = imageList1->Images[3];
+		   pictureBox5->Image = imageList1->Images[25];
 	   }
-	   if ((button1->Text == "12" || button1->Text == "14") && (radioButton3->Checked == true)) {
+	   if ((button1->Text == "12" || button1->Text == "14") && (radioButton3->Checked == true) && !(pictureBox6->Focused)) {
 		   radioButton3->BackColor = System::Drawing::Color::Red;
 		   pictureBox1->Image = imageList1->Images[8];
 		   iSlide = 0;
 		   button1->Enabled = true;
-		   button1->Text = "0";
+		   button1->Text = "restart";
 		   
 		   Question1();
 		   pictureBox4->Enabled = true;
 		   pictureBox5->Enabled = true;
 		   pictureBox4->Image = imageList1->Images[1];
-		   pictureBox5->Image = imageList1->Images[3];
+		   pictureBox5->Image = imageList1->Images[25];
 	   }
 
 
@@ -1301,88 +1499,87 @@ private: System::Void radioButton4_CheckedChanged(System::Object^ sender, System
 
 
 	//=========================InCorrect Answer=============================
-	if ((button1->Text == "1" || button1->Text == "2" || button1->Text == "3") && (radioButton4->Checked == true))
+	if ((button1->Text == "1" || button1->Text == "2" || button1->Text == "3") && (radioButton4->Checked == true) && !(pictureBox6->Focused))
 	{
 		radioButton4->BackColor = System::Drawing::Color::Red;
 		pictureBox1->Image = imageList1->Images[8];
 		iSlide = 0;
 		button1->Enabled = true;
-		button1->Text = "0";
+		button1->Text = "restart";
 		
 		Question1();
 		pictureBox4->Enabled = true;
 		pictureBox5->Enabled = true;
 		pictureBox4->Image = imageList1->Images[1];
-		pictureBox5->Image = imageList1->Images[3];
+		pictureBox5->Image = imageList1->Images[25];
 	}
-	if ((button1->Text == "4" || button1->Text == "5") && (radioButton4->Checked == true))
+	if ((button1->Text == "4" || button1->Text == "5") && (radioButton4->Checked == true) && !(pictureBox6->Focused))
 	{
 		radioButton4->BackColor = System::Drawing::Color::Red;
 		pictureBox1->Image = imageList1->Images[8];
 		iSlide = 0;
 		button1->Enabled = true;
-		button1->Text = "0";
+		button1->Text = "restart";
 		
 		Question1();
 		pictureBox4->Enabled = true;
 		pictureBox5->Enabled = true;
 		pictureBox4->Image = imageList1->Images[1];
-		pictureBox5->Image = imageList1->Images[3];
+		pictureBox5->Image = imageList1->Images[25];
 	}
 
-	if ((button1->Text == "6") && (radioButton4->Checked == true)) {
-		label2->Text = "You have just won $32000";
+	if ((button1->Text == "6") && (radioButton4->Checked == true) && !(pictureBox6->Focused)) {
 		radioButton4->BackColor = System::Drawing::Color::Red;
 		pictureBox1->Image = imageList1->Images[8];
 		iSlide = 0;
 		button1->Enabled = true;
-		button1->Text = "0";
+		button1->Text = "restart";
 		
 		Question1();
 		pictureBox4->Enabled = true;
 		pictureBox5->Enabled = true;
 		pictureBox4->Image = imageList1->Images[1];
-		pictureBox5->Image = imageList1->Images[3];
+		pictureBox5->Image = imageList1->Images[25];
 	}
-	if ((button1->Text == "10" || button1->Text == "8" || button1->Text == "9") && (radioButton4->Checked == true))
+	if ((button1->Text == "10" || button1->Text == "8" || button1->Text == "9") && (radioButton4->Checked == true) && !(pictureBox6->Focused))
 	{
 		radioButton4->BackColor = System::Drawing::Color::Red;
 		pictureBox1->Image = imageList1->Images[8];
 		iSlide = 0;
 		button1->Enabled = true;
-		button1->Text = "0";
+		button1->Text = "restart";
 		
 		Question1();
 		pictureBox4->Enabled = true;
 		pictureBox5->Enabled = true;
 		pictureBox4->Image = imageList1->Images[1];
-		pictureBox5->Image = imageList1->Images[3];
+		pictureBox5->Image = imageList1->Images[25];
 	}
-	if ((button1->Text == "11" || button1->Text == "13") && (radioButton4->Checked == true)) {
+	if ((button1->Text == "11" || button1->Text == "13") && (radioButton4->Checked == true) && !(pictureBox6->Focused)) {
 		radioButton4->BackColor = System::Drawing::Color::Red;
 		pictureBox1->Image = imageList1->Images[8];
 		iSlide = 0;
 		button1->Enabled = true;
-		button1->Text = "0";
+		button1->Text = "restart";
 		
 		Question1();
 		pictureBox4->Enabled = true;
 		pictureBox5->Enabled = true;
 		pictureBox4->Image = imageList1->Images[1];
-		pictureBox5->Image = imageList1->Images[3];
+		pictureBox5->Image = imageList1->Images[25];
 	}
-	if ((button1->Text == "14") && (radioButton4->Checked == true)) {
+	if ((button1->Text == "14") && (radioButton4->Checked == true) && !(pictureBox6->Focused)) {
 		radioButton4->BackColor = System::Drawing::Color::Red;
 		pictureBox1->Image = imageList1->Images[8];
 		iSlide = 0;
 		button1->Enabled = true;
-		button1->Text = "0";
+		button1->Text = "restart";
 		
 		Question1();
 		pictureBox4->Enabled = true;
 		pictureBox5->Enabled = true;
 		pictureBox4->Image = imageList1->Images[1];
-		pictureBox5->Image = imageList1->Images[3];
+		pictureBox5->Image = imageList1->Images[25];
 	}
 
 
@@ -1390,7 +1587,76 @@ private: System::Void radioButton4_CheckedChanged(System::Object^ sender, System
 
 }
 private: System::Void pictureBox6_Click(System::Object^ sender, System::EventArgs^ e) {
-	pictureBox6->Image = imageList1->Images[6];
+	//pictureBox6->Image = imageList1->Images[6];
+	/*if ((button1->Text == "1" || button1->Text == "2" || button1->Text == "5") && (radioButton1->Checked == true)) {
+		radioButton1->BackColor = System::Drawing::Color::Red;
+		clickCount++;
+	}
+	if ((button1->Text == "6" || button1->Text == "7" || button1->Text == "8") && (radioButton1->Checked == true)) {
+		radioButton1->BackColor = System::Drawing::Color::Red;
+		clickCount++;
+	}
+	if ((button1->Text == "10" || button1->Text == "12" || button1->Text == "14") && (radioButton1->Checked == true)) {
+		radioButton1->BackColor = System::Drawing::Color::Red;
+		clickCount++;
+	}
+	if ((button1->Text == "15") && (radioButton1->Checked == true)) {
+		radioButton1->BackColor = System::Drawing::Color::Red;
+		clickCount++;
+	}
+	if ((button1->Text == "1" || button1->Text == "2" || button1->Text == "3") && (radioButton2->Checked == true)) {
+		radioButton1->BackColor = System::Drawing::Color::Red;
+		clickCount++;
+	}
+	if ((button1->Text == "6" || button1->Text == "7" || button1->Text == "4") && (radioButton2->Checked == true)) {
+		radioButton1->BackColor = System::Drawing::Color::Red;
+		clickCount++;
+	}
+	if ((button1->Text == "9" || button1->Text == "12" || button1->Text == "11") && (radioButton2->Checked == true)) {
+		radioButton1->BackColor = System::Drawing::Color::Red;
+		clickCount++;
+	}
+	if ((button1->Text == "15" || button1->Text == "13") && (radioButton2->Checked == true)) {
+		radioButton1->BackColor = System::Drawing::Color::Red;
+		clickCount++;
+	}
+	if ((button1->Text == "3" || button1->Text == "4" || button1->Text == "5") && (radioButton3->Checked == true)) {
+		radioButton1->BackColor = System::Drawing::Color::Red;
+		clickCount++;
+	}
+	if ((button1->Text == "9" || button1->Text == "7" || button1->Text == "8") && (radioButton3->Checked == true)) {
+		radioButton1->BackColor = System::Drawing::Color::Red;
+		clickCount++;
+	}
+	if ((button1->Text == "10" || button1->Text == "12" || button1->Text == "14") && (radioButton3->Checked == true)) {
+		radioButton1->BackColor = System::Drawing::Color::Red;
+		clickCount++;
+	}
+	if ((button1->Text == "15" || button1->Text == "11" || button1->Text == "13") && (radioButton3->Checked == true)) {
+		radioButton1->BackColor = System::Drawing::Color::Red;
+		clickCount++;
+	}
+	if ((button1->Text == "1" || button1->Text == "2" || button1->Text == "5") && (radioButton4->Checked == true)) {
+		radioButton1->BackColor = System::Drawing::Color::Red;
+		clickCount++;
+	}
+	if ((button1->Text == "6" || button1->Text == "3" || button1->Text == "8") && (radioButton4->Checked == true)) {
+		radioButton1->BackColor = System::Drawing::Color::Red;
+		clickCount++;
+	}
+	if ((button1->Text == "10" || button1->Text == "4" || button1->Text == "14") && (radioButton4->Checked == true)) {
+		radioButton1->BackColor = System::Drawing::Color::Red;
+		clickCount++;
+	}
+	if ((button1->Text == "9" || button1->Text == "11" || button1->Text == "13") && (radioButton4->Checked == true)) {
+		radioButton1->BackColor = System::Drawing::Color::Red;
+		clickCount++;
+	}
+	
+	if (clickCount == 2) 
+	{
+
+	}*/
 
 
 }
