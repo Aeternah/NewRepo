@@ -4,6 +4,7 @@
 
 
 
+
 namespace CppCLRWinFormsProject {
 
 	using namespace System;
@@ -23,53 +24,19 @@ namespace CppCLRWinFormsProject {
 		Form1(void)
 		{
 			InitializeComponent();
-			//LoadImages();
+			LoadImages();
 			//
 			//TODO: Add the constructor code here
 			//
 			iSlide = 0;
-			bool secondChanseUsed = false;
+			bool secondChance= false;
 			isRunning = false;
 			elapsedSeconds = 0;
 			
 			
 		}
-		/*void Form1::LoadImages() {
-			std::string imagePath1 = "Images\\Picture01.png";
-			System::String^ imagePathManaged1 = gcnew System::String(imagePath1.c_str());
-			LoadImageIntoPictureBox(this->pictureBox1, imagePath1);
-			
-			std::string imagePath3 = "Images\\icon.jpg";
-			System::String^ imagePathManaged3 = gcnew System::String(imagePath3.c_str());
-			LoadImageIntoPictureBox(this->pictureBox3, imagePath3);
-			
-			std::string imagePath4 = "Images\\50on50.jpg";
-			System::String^ imagePathManaged4 = gcnew System::String(imagePath4.c_str());
-			LoadImageIntoPictureBox(this->pictureBox4, imagePath4);
-			
-			std::string imagePath5 = "Images\\PPLhelp.jpg";
-			System::String^ imagePathManaged5 = gcnew System::String(imagePath5.c_str());
-			LoadImageIntoPictureBox(this->pictureBox5, imagePath5);
-			
-			std::string imagePath6 = "Images\\2x.png";
-			System::String^ imagePathManaged6 = gcnew System::String(imagePath6.c_str());
-			LoadImageIntoPictureBox(this->pictureBox6, imagePath6);
-		}
-
-		void Form1::LoadImageIntoPictureBox(PictureBox^ pictureBox, std::string imagePath)
-		{
-			System::String^ imagePathManaged = gcnew System::String(imagePath.c_str());
-			if (System::IO::File::Exists(imagePathManaged))
-			{
-				pictureBox->Image = Image::FromFile(imagePathManaged);
-				pictureBox->SizeMode = PictureBoxSizeMode::StretchImage;
-			}
-			else
-			{
-				MessageBox::Show("Image file not found: " + imagePathManaged, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-			}
-		}
-		*/
+		
+		
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -88,7 +55,7 @@ namespace CppCLRWinFormsProject {
 
 
 
-	private: System::Windows::Forms::ImageList^ imageList1;
+
 	private:
 		
 		System::Windows::Forms::Label^ timeLabel;
@@ -192,7 +159,6 @@ private: System::Windows::Forms::Label^ label4;
 		{
 			this->components = (gcnew System::ComponentModel::Container());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1::typeid));
-			this->imageList1 = (gcnew System::Windows::Forms::ImageList(this->components));
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
@@ -217,37 +183,6 @@ private: System::Windows::Forms::Label^ label4;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
-			// 
-			// imageList1
-			// 
-			this->imageList1->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imageList1.ImageStream")));
-			this->imageList1->TransparentColor = System::Drawing::Color::Transparent;
-			this->imageList1->Images->SetKeyName(0, L"2x.jpg");
-			this->imageList1->Images->SetKeyName(1, L"50on50.jpg");
-			this->imageList1->Images->SetKeyName(2, L"icon.jpg");
-			this->imageList1->Images->SetKeyName(3, L"jpgePeople.jpg");
-			this->imageList1->Images->SetKeyName(4, L"jpgePeopleX.jpg");
-			this->imageList1->Images->SetKeyName(5, L"jpgePhone.jpg");
-			this->imageList1->Images->SetKeyName(6, L"jpgePhoneX.jpg");
-			this->imageList1->Images->SetKeyName(7, L"Picture0.png");
-			this->imageList1->Images->SetKeyName(8, L"Picture01.png");
-			this->imageList1->Images->SetKeyName(9, L"Picture1.png");
-			this->imageList1->Images->SetKeyName(10, L"Picture2.png");
-			this->imageList1->Images->SetKeyName(11, L"Picture3.png");
-			this->imageList1->Images->SetKeyName(12, L"Picture4.png");
-			this->imageList1->Images->SetKeyName(13, L"Picture5.png");
-			this->imageList1->Images->SetKeyName(14, L"Picture6.png");
-			this->imageList1->Images->SetKeyName(15, L"Picture7.png");
-			this->imageList1->Images->SetKeyName(16, L"Picture8.png");
-			this->imageList1->Images->SetKeyName(17, L"Picture9.png");
-			this->imageList1->Images->SetKeyName(18, L"Picture10.png");
-			this->imageList1->Images->SetKeyName(19, L"Picture11.png");
-			this->imageList1->Images->SetKeyName(20, L"Picture12.png");
-			this->imageList1->Images->SetKeyName(21, L"Picture13.png");
-			this->imageList1->Images->SetKeyName(22, L"Picture14.png");
-			this->imageList1->Images->SetKeyName(23, L"Picture15.png");
-			this->imageList1->Images->SetKeyName(24, L"Layout.png");
-			this->imageList1->Images->SetKeyName(25, L"PPLhelp.jpg");
 			// 
 			// pictureBox2
 			// 
@@ -485,8 +420,80 @@ private: System::Windows::Forms::Label^ label4;
 		int iSlide;
 		int clickCount = 0;
 		int money = 0;
-
+		bool secondChance = false;
+private:
+	System::Drawing::Image^ image11;
+	System::Drawing::Image^ image12;
+	System::Drawing::Image^ image13;
+	System::Drawing::Image^ image14;
+	System::Drawing::Image^ image15;
+	System::Drawing::Image^ image16;
+	System::Drawing::Image^ image17;
+	System::Drawing::Image^ image18;
+	System::Drawing::Image^ image19;
+	System::Drawing::Image^ image110;
+	System::Drawing::Image^ image111;
+	System::Drawing::Image^ image112;
+	System::Drawing::Image^ image113;
+	System::Drawing::Image^ image114;
+	System::Drawing::Image^ image115;
+	
 		
+private: System::Void LoadImages() {
+	String^ imagePath1 = "Images\\Picture01.png";
+	System::Drawing::Image^ image1 = System::Drawing::Image::FromFile(imagePath1);
+	this->pictureBox1->Image = image1;
+
+	String^ imagePath3 = "Images\\Icon.jpg";
+	System::Drawing::Image^ image3 = System::Drawing::Image::FromFile(imagePath3);
+	this->pictureBox3->Image = image3;
+
+	String^ imagePath4 = "Images\\50on50.jpg";
+	System::Drawing::Image^ image4 = System::Drawing::Image::FromFile(imagePath4);
+	this->pictureBox4->Image = image4;
+	
+	String^ imagePath5 = "Images\\PPLhelp.jpg";
+	System::Drawing::Image^ image5 = System::Drawing::Image::FromFile(imagePath5);
+	this->pictureBox5->Image = image5;
+
+	String^ imagePath6 = "Images\\2x.png";
+	System::Drawing::Image^ image6 = System::Drawing::Image::FromFile(imagePath6);
+	this->pictureBox6->Image = image6;
+
+	String^ imagePath11 = "Images\\Picture1.png";
+	String^ imagePath12 = "Images\\Picture2.png";
+	String^ imagePath13 = "Images\\Picture3.png";
+	String^ imagePath14 = "Images\\Picture4.png";
+	String^ imagePath15 = "Images\\Picture5.png";
+	String^ imagePath16 = "Images\\Picture6.png";
+	String^ imagePath17 = "Images\\Picture7.png";
+	String^ imagePath18 = "Images\\Picture8.png";
+	String^ imagePath19 = "Images\\Picture9.png";
+	String^ imagePath110 = "Images\\Picture10.png";
+	String^ imagePath111 = "Images\\Picture11.png";
+	String^ imagePath112 = "Images\\Picture12.png";
+	String^ imagePath113 = "Images\\Picture13.png";
+	String^ imagePath114 = "Images\\Picture14.png";
+	String^ imagePath115 = "Images\\Picture15.png";
+
+	this->image11 = System::Drawing::Image::FromFile(imagePath11);
+	this->image12 = System::Drawing::Image::FromFile(imagePath12);
+	this->image13 = System::Drawing::Image::FromFile(imagePath13);
+	this->image14 = System::Drawing::Image::FromFile(imagePath14);
+	this->image15 = System::Drawing::Image::FromFile(imagePath15);
+	this->image16 = System::Drawing::Image::FromFile(imagePath16);
+	this->image17 = System::Drawing::Image::FromFile(imagePath17);
+	this->image18 = System::Drawing::Image::FromFile(imagePath18);
+	this->image19 = System::Drawing::Image::FromFile(imagePath19);
+	this->image110 = System::Drawing::Image::FromFile(imagePath110);
+	this->image111 = System::Drawing::Image::FromFile(imagePath111);
+	this->image112 = System::Drawing::Image::FromFile(imagePath112);
+	this->image113 = System::Drawing::Image::FromFile(imagePath113);
+	this->image114 = System::Drawing::Image::FromFile(imagePath114);
+	this->image115 = System::Drawing::Image::FromFile(imagePath115);
+	
+}
+
 
 	private: System::Void timer_Tick(System::Object^ sender, System::EventArgs^ e) {
 		this->elapsedSeconds++;
@@ -498,11 +505,7 @@ private: System::Windows::Forms::Label^ label4;
 
 	private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
 
-		pictureBox1->Image = imageList1->Images[8];
-		pictureBox3->Image = imageList1->Images[2];
-		pictureBox4->Image = imageList1->Images[1];
-		pictureBox5->Image = imageList1->Images[25];
-		pictureBox6->Image = imageList1->Images[0];
+		
 
 		radioButton1->Checked = false;
 		radioButton2->Checked = false;
@@ -510,68 +513,7 @@ private: System::Windows::Forms::Label^ label4;
 		radioButton4->Checked = false;
 
 		
-		label2->Text = "$0";
 		
-		if (button1->Text == "1") {
-			money = 0;
-			label2->Text = "$0";
-		}
-		if (button1->Text == "2") {
-			money = 100;
-			label2->Text = "$100";
-		}
-		if (button1->Text == "3") {
-			money = 200;
-			label2->Text = "$200";
-		}
-		if (button1->Text == "4") {
-			money = 300;
-			label2->Text = "$300";
-		}
-		if (button1->Text == "5") {
-			money = 500;
-			label2->Text = "$500";
-		}
-		if (button1->Text == "6") {
-			money = 1000;
-			label2->Text = "$1000";
-		}
-		if (button1->Text == "7") {
-			money = 2000;
-			label2->Text = "$2000";
-		}
-		if (button1->Text == "8") {
-			money = 4000;
-			label2->Text = "$4000";
-		}
-		if (button1->Text == "9") {
-			money = 8000;
-			label2->Text = "$8000";
-		}
-		if (button1->Text == "10") {
-			money = 16000;
-			label2->Text = "$16000";
-		}
-		if (button1->Text == "11") {
-			money = 32000;
-			label2->Text = "$32000";
-		}
-		if (button1->Text == "12") {
-			money = 64000;
-			label2->Text = "$64000";
-		}
-		if (button1->Text == "13") {
-			money = 125000;
-			label2->Text = "$125000";
-		}
-		if (button1->Text == "14") {
-			money = 250000;
-			label2->Text = "$250000";
-		}
-		if (button1->Text == "15") {
-			money = 500000;
-			label2->Text = "$500000";
-		}
 	}
 
 	
@@ -579,11 +521,15 @@ private: System::Void pictureBox4_Click(System::Object^ sender, System::EventArg
 
 	
 	if (button1->Text == "start/restart") {
-		pictureBox4->Image = imageList1->Images[1];
+		String^ imagePath4 = "Images\\50on50.jpg";
+		System::Drawing::Image^ image4 = System::Drawing::Image::FromFile(imagePath4);
+		this->pictureBox4->Image = image4;
 		
 	}
 	else {
-		pictureBox4->Image = imageList1->Images[3];
+		String^ imagePath4x = "Images\\50on50x.jpg";
+		System::Drawing::Image^ image4x = System::Drawing::Image::FromFile(imagePath4x);
+		this->pictureBox4->Image = image4x;
 	}
 
 	if (button1->Text == "1") 
@@ -839,7 +785,7 @@ private: System::Void Question15() {
 
 
 
-
+	   
 
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 
@@ -847,6 +793,69 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	radioButton2->Checked = false;
 	radioButton3->Checked = false;
 	radioButton4->Checked = false;
+
+
+	label2->Text = "$0";
+
+	
+	
+	if (button1->Text == "1") {
+		money = 100;
+		label2->Text = "$100";
+	}
+	if (button1->Text == "2") {
+		money = 200;
+		label2->Text = "$200";
+	}
+	if (button1->Text == "3") {
+		money = 300;
+		label2->Text = "$300";
+	}
+	if (button1->Text == "4") {
+		money = 500;
+		label2->Text = "$500";
+	}
+	if (button1->Text == "5") {
+		money = 1000;
+		label2->Text = "$1000";
+	}
+	if (button1->Text == "6") {
+		money = 2000;
+		label2->Text = "$2000";
+	}
+	if (button1->Text == "7") {
+		money = 4000;
+		label2->Text = "$4000";
+	}
+	if (button1->Text == "8") {
+		money = 8000;
+		label2->Text = "$8000";
+	}
+	if (button1->Text == "9") {
+		money = 16000;
+		label2->Text = "$16000";
+	}
+	if (button1->Text == "10") {
+		money = 32000;
+		label2->Text = "$32000";
+	}
+	if (button1->Text == "11") {
+		money = 64000;
+		label2->Text = "$64000";
+	}
+	if (button1->Text == "12") {
+		money = 125000;
+		label2->Text = "$125000";
+	}
+	if (button1->Text == "13") {
+		money = 250000;
+		label2->Text = "$250000";
+	}
+	if (button1->Text == "14") {
+		money = 500000;
+		label2->Text = "$500000";
+	}
+
 
 	radioButton1->Visible = true;
 	radioButton2->Visible = true;
@@ -883,7 +892,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		Question1();
 		iSlide = 1;
 		button1->Text = Convert::ToString(iSlide);
-		pictureBox1->Image = imageList1->Images[9];
+		this->pictureBox1->Image = this->image11;
 		button1->Enabled = false;
 
 		radioButton1->Checked = false;
@@ -903,7 +912,8 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		Question2();
 		iSlide = 2;
 		button1->Text = Convert::ToString(iSlide);
-		pictureBox1->Image = imageList1->Images[10];
+		
+		this->pictureBox1->Image = this->image12;
 		button1->Enabled = false;
 
 		radioButton1->Checked = false;
@@ -921,7 +931,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		Question3();
 		iSlide = 3;
 		button1->Text = Convert::ToString(iSlide);
-		pictureBox1->Image = imageList1->Images[11];
+		this->pictureBox1->Image = this->image13;
 		button1->Enabled = false;
 
 		radioButton1->Checked = false;
@@ -940,7 +950,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		Question4();
 		iSlide = 4;
 		button1->Text = Convert::ToString(iSlide);
-		pictureBox1->Image = imageList1->Images[12];
+		this->pictureBox1->Image = this->image14;
 		button1->Enabled = false;
 
 		radioButton1->Checked = false;
@@ -958,7 +968,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		Question5();
 		iSlide = 5;
 		button1->Text = Convert::ToString(iSlide);
-		pictureBox1->Image = imageList1->Images[13];
+		this->pictureBox1->Image = this->image15;
 		button1->Enabled = false;
 
 		radioButton1->Checked = false;
@@ -976,7 +986,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		Question6();
 		iSlide = 6;
 		button1->Text = Convert::ToString(iSlide);
-		pictureBox1->Image = imageList1->Images[14];
+		this->pictureBox1->Image = this->image16;
 		button1->Enabled = false;
 
 		radioButton1->Checked = false;
@@ -994,7 +1004,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		Question7();
 		iSlide = 7;
 		button1->Text = Convert::ToString(iSlide);
-		pictureBox1->Image = imageList1->Images[15];
+		this->pictureBox1->Image = this->image17;
 		button1->Enabled = false;
 
 		radioButton1->Checked = false;
@@ -1012,7 +1022,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		Question8();
 		iSlide = 8;
 		button1->Text = Convert::ToString(iSlide);
-		pictureBox1->Image = imageList1->Images[16];
+		this->pictureBox1->Image = this->image18;
 		button1->Enabled = false;
 
 		radioButton1->Checked = false;
@@ -1030,7 +1040,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		Question9();
 		iSlide = 9;
 		button1->Text = Convert::ToString(iSlide);
-		pictureBox1->Image = imageList1->Images[17];
+		this->pictureBox1->Image = this->image19;
 		button1->Enabled = false;
 
 		radioButton1->Checked = false;
@@ -1048,7 +1058,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		Question10();
 		iSlide = 10;
 		button1->Text = Convert::ToString(iSlide);
-		pictureBox1->Image = imageList1->Images[18];
+		this->pictureBox1->Image = this->image110;
 		button1->Enabled = false;
 
 		radioButton1->Checked = false;
@@ -1067,7 +1077,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		Question11();
 		iSlide = 11;
 		button1->Text = Convert::ToString(iSlide);
-		pictureBox1->Image = imageList1->Images[19];
+		this->pictureBox1->Image = this->image111;
 		button1->Enabled = false;
 
 		radioButton1->Checked = false;
@@ -1085,7 +1095,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		Question12();
 		iSlide = 12;
 		button1->Text = Convert::ToString(iSlide);
-		pictureBox1->Image = imageList1->Images[20];
+		this->pictureBox1->Image = this->image112;
 		button1->Enabled = false;
 
 		radioButton1->Checked = false;
@@ -1103,7 +1113,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		Question13();
 		iSlide = 13;
 		button1->Text = Convert::ToString(iSlide);
-		pictureBox1->Image = imageList1->Images[21];
+		this->pictureBox1->Image = this->image113;
 		button1->Enabled = false;
 
 		radioButton1->Checked = false;
@@ -1121,7 +1131,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		Question14();
 		iSlide = 14;
 		button1->Text = Convert::ToString(iSlide);
-		pictureBox1->Image = imageList1->Images[22];
+		this->pictureBox1->Image = this->image114;
 		button1->Enabled = false;
 
 		radioButton1->Checked = false;
@@ -1139,7 +1149,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		Question15();
 		iSlide = 15;
 		button1->Text = Convert::ToString(iSlide);
-		pictureBox1->Image = imageList1->Images[23];
+		this->pictureBox1->Image = this->image115;
 		button1->Enabled = false;
 
 		radioButton1->Checked = false;
@@ -1189,22 +1199,92 @@ private: System::Void radioButton1_CheckedChanged(System::Object^ sender, System
 	//=========================InCorrect Answer=============================
 	if ((button1->Text == "10" || button1->Text == "2" || button1->Text == "14") && (radioButton1->Checked == true) && !(pictureBox6->Focused))
 	{
-		radioButton1->BackColor = System::Drawing::Color::Red;
-		pictureBox1->Image = imageList1->Images[8];
-		iSlide = 0;
-		button1->Enabled = true;
-		button1->Text = "restart";
+		if (secondChance) {
+			radioButton1->BackColor = System::Drawing::Color::Red;
+			if (button1->Text == "3" && radioButton1->Checked == true) {
+				radioButton1->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+
+			}
+			if (button1->Text == "4" && radioButton1->Checked == true) {
+				radioButton1->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+			if (button1->Text == "9" && radioButton1->Checked == true) {
+				radioButton1->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+			if (button1->Text == "11" && radioButton1->Checked == true) {
+				radioButton1->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+			if (button1->Text == "13" && radioButton1->Checked == true) {
+				radioButton1->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+
+		}
 		
-		Question1();
-		pictureBox4->Enabled = true;
-		pictureBox5->Enabled = true;
-		pictureBox4->Image = imageList1->Images[1];
-		pictureBox5->Image = imageList1->Images[25];
-	}
+			radioButton1->BackColor = System::Drawing::Color::Red;
+			String^ imagePath1 = "Images\\Picture01.png";
+			System::Drawing::Image^ image1 = System::Drawing::Image::FromFile(imagePath1);
+			this->pictureBox1->Image = image1;
+
+			String^ imagePath4 = "Images\\50on50.jpg";
+			System::Drawing::Image^ image4 = System::Drawing::Image::FromFile(imagePath4);
+			this->pictureBox4->Image = image4;
+
+			String^ imagePath5 = "Images\\PPLhelp.jpg";
+			System::Drawing::Image^ image5 = System::Drawing::Image::FromFile(imagePath5);
+			this->pictureBox5->Image = image5;
+			iSlide = 0;
+			button1->Enabled = true;
+			button1->Text = "restart";
+
+			Question1();
+			pictureBox4->Enabled = true;
+			pictureBox5->Enabled = true;
+		}
+		
+	
 	if ((button1->Text == "8" || button1->Text == "5" || button1->Text == "6") && (radioButton1->Checked == true) && !(pictureBox6->Focused))
 	{
+		if (secondChance) {
+			radioButton1->BackColor = System::Drawing::Color::Red;
+			if (button1->Text == "3" && radioButton1->Checked == true) {
+				radioButton1->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+
+			}
+			if (button1->Text == "4" && radioButton1->Checked == true) {
+				radioButton1->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+			if (button1->Text == "9" && radioButton1->Checked == true) {
+				radioButton1->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+			if (button1->Text == "11" && radioButton1->Checked == true) {
+				radioButton1->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+			if (button1->Text == "13" && radioButton1->Checked == true) {
+				radioButton1->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+		}
 		radioButton1->BackColor = System::Drawing::Color::Red;
-		pictureBox1->Image = imageList1->Images[8];
+		String^ imagePath1 = "Images\\Picture01.png";
+		System::Drawing::Image^ image1 = System::Drawing::Image::FromFile(imagePath1);
+		this->pictureBox1->Image = image1;
+
+		String^ imagePath4 = "Images\\50on50.jpg";
+		System::Drawing::Image^ image4 = System::Drawing::Image::FromFile(imagePath4);
+		this->pictureBox4->Image = image4;
+
+		String^ imagePath5 = "Images\\PPLhelp.jpg";
+		System::Drawing::Image^ image5 = System::Drawing::Image::FromFile(imagePath5);
+		this->pictureBox5->Image = image5;
 		iSlide = 0;
 		button1->Enabled = true;
 		button1->Text = "restart";
@@ -1212,13 +1292,46 @@ private: System::Void radioButton1_CheckedChanged(System::Object^ sender, System
 		Question1();
 		pictureBox4->Enabled = true;
 		pictureBox5->Enabled = true;
-		pictureBox4->Image = imageList1->Images[1];
-		pictureBox5->Image = imageList1->Images[25];
+		
 	}
 
 	if ((button1->Text == "6") && (radioButton1->Checked == true) && !(pictureBox6->Focused)) {
+		if (secondChance) {
+			radioButton1->BackColor = System::Drawing::Color::Red;
+			if (button1->Text == "3" && radioButton1->Checked == true) {
+				radioButton1->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+
+			}
+			if (button1->Text == "4" && radioButton1->Checked == true) {
+				radioButton1->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+			if (button1->Text == "9" && radioButton1->Checked == true) {
+				radioButton1->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+			if (button1->Text == "11" && radioButton1->Checked == true) {
+				radioButton1->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+			if (button1->Text == "13" && radioButton1->Checked == true) {
+				radioButton1->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+		}
 		radioButton1->BackColor = System::Drawing::Color::Red;
-		pictureBox1->Image = imageList1->Images[8];
+		String^ imagePath1 = "Images\\Picture01.png";
+		System::Drawing::Image^ image1 = System::Drawing::Image::FromFile(imagePath1);
+		this->pictureBox1->Image = image1;
+
+		String^ imagePath4 = "Images\\50on50.jpg";
+		System::Drawing::Image^ image4 = System::Drawing::Image::FromFile(imagePath4);
+		this->pictureBox4->Image = image4;
+
+		String^ imagePath5 = "Images\\PPLhelp.jpg";
+		System::Drawing::Image^ image5 = System::Drawing::Image::FromFile(imagePath5);
+		this->pictureBox5->Image = image5;
 		iSlide = 0;
 		button1->Enabled = true;
 		button1->Text = "restart";
@@ -1226,13 +1339,45 @@ private: System::Void radioButton1_CheckedChanged(System::Object^ sender, System
 		Question1();
 		pictureBox4->Enabled = true;
 		pictureBox5->Enabled = true;
-		pictureBox4->Image = imageList1->Images[1];
-		pictureBox5->Image = imageList1->Images[25];
 	}
 	if ((button1->Text == "7" || button1->Text == "15" || button1->Text == "1") && (radioButton1->Checked == true) && !(pictureBox6->Focused))
 	{
+		if (secondChance) {
+			radioButton1->BackColor = System::Drawing::Color::Red;
+			if (button1->Text == "3" && radioButton1->Checked == true) {
+				radioButton1->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+
+			}
+			if (button1->Text == "4" && radioButton1->Checked == true) {
+				radioButton1->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+			if (button1->Text == "9" && radioButton1->Checked == true) {
+				radioButton1->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+			if (button1->Text == "11" && radioButton1->Checked == true) {
+				radioButton1->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+			if (button1->Text == "13" && radioButton1->Checked == true) {
+				radioButton1->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+		}
 		radioButton1->BackColor = System::Drawing::Color::Red;
-		pictureBox1->Image = imageList1->Images[8];
+		String^ imagePath1 = "Images\\Picture01.png";
+		System::Drawing::Image^ image1 = System::Drawing::Image::FromFile(imagePath1);
+		this->pictureBox1->Image = image1;
+
+		String^ imagePath4 = "Images\\50on50.jpg";
+		System::Drawing::Image^ image4 = System::Drawing::Image::FromFile(imagePath4);
+		this->pictureBox4->Image = image4;
+
+		String^ imagePath5 = "Images\\PPLhelp.jpg";
+		System::Drawing::Image^ image5 = System::Drawing::Image::FromFile(imagePath5);
+		this->pictureBox5->Image = image5;
 		iSlide = 0;
 		button1->Enabled = true;
 		button1->Text = "restart";
@@ -1240,12 +1385,46 @@ private: System::Void radioButton1_CheckedChanged(System::Object^ sender, System
 		Question1();
 		pictureBox4->Enabled = true;
 		pictureBox5->Enabled = true;
-		pictureBox4->Image = imageList1->Images[1];
-		pictureBox5->Image = imageList1->Images[25];
+		
 	}
 	if ((button1->Text == "12") && (radioButton1->Checked == true) && !(pictureBox6->Focused)) {
-		radioButton1->BackColor = System::Drawing::Color::Red;
-		pictureBox1->Image = imageList1->Images[8];
+		
+		if (secondChance) {
+			radioButton1->BackColor = System::Drawing::Color::Red;
+			if (button1->Text == "3" && radioButton1->Checked == true) {
+				radioButton1->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+
+			}
+			if (button1->Text == "4" && radioButton1->Checked == true) {
+				radioButton1->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+			if (button1->Text == "9" && radioButton1->Checked == true) {
+				radioButton1->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+			if (button1->Text == "11" && radioButton1->Checked == true) {
+				radioButton1->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+			if (button1->Text == "13" && radioButton1->Checked == true) {
+				radioButton1->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+			radioButton1->BackColor = System::Drawing::Color::Red;
+		}
+		String^ imagePath1 = "Images\\Picture01.png";
+		System::Drawing::Image^ image1 = System::Drawing::Image::FromFile(imagePath1);
+		this->pictureBox1->Image = image1;
+
+		String^ imagePath4 = "Images\\50on50.jpg";
+		System::Drawing::Image^ image4 = System::Drawing::Image::FromFile(imagePath4);
+		this->pictureBox4->Image = image4;
+
+		String^ imagePath5 = "Images\\PPLhelp.jpg";
+		System::Drawing::Image^ image5 = System::Drawing::Image::FromFile(imagePath5);
+		this->pictureBox5->Image = image5;
 		iSlide = 0;
 		button1->Enabled = true;
 		button1->Text = "restart";
@@ -1253,8 +1432,7 @@ private: System::Void radioButton1_CheckedChanged(System::Object^ sender, System
 		Question1();
 		pictureBox4->Enabled = true;
 		pictureBox5->Enabled = true;
-		pictureBox4->Image = imageList1->Images[1];
-		pictureBox5->Image = imageList1->Images[25];
+		
 	}
 	
 
@@ -1288,8 +1466,37 @@ private: System::Void radioButton2_CheckedChanged(System::Object^ sender, System
 	   //=========================InCorrect Answer=============================
 	   if ((button1->Text == "11" || button1->Text == "2" || button1->Text == "3") && (radioButton2->Checked == true) && !(pictureBox6->Focused))
 	   {
+		   if (secondChance) {
+			   radioButton2->BackColor = System::Drawing::Color::Red;
+			   if (button1->Text == "10" && radioButton2->Checked == true) {
+				   radioButton2->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+			   if (button1->Text == "5" && radioButton2->Checked == true) {
+				   radioButton2->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+			   if (button1->Text == "8" && radioButton2->Checked == true) {
+				   radioButton2->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+			   if (button1->Text == "14" && radioButton2->Checked == true) {
+				   radioButton2->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+		   }
 		   radioButton2->BackColor = System::Drawing::Color::Red;
-		   pictureBox1->Image = imageList1->Images[8];
+		   String^ imagePath1 = "Images\\Picture01.png";
+		   System::Drawing::Image^ image1 = System::Drawing::Image::FromFile(imagePath1);
+		   this->pictureBox1->Image = image1;
+
+		   String^ imagePath4 = "Images\\50on50.jpg";
+		   System::Drawing::Image^ image4 = System::Drawing::Image::FromFile(imagePath4);
+		   this->pictureBox4->Image = image4;
+
+		   String^ imagePath5 = "Images\\PPLhelp.jpg";
+		   System::Drawing::Image^ image5 = System::Drawing::Image::FromFile(imagePath5);
+		   this->pictureBox5->Image = image5;
 		   iSlide = 0;
 		   button1->Enabled = true;
 		   button1->Text = "restart";
@@ -1297,13 +1504,41 @@ private: System::Void radioButton2_CheckedChanged(System::Object^ sender, System
 		   Question1();
 		   pictureBox4->Enabled = true;
 		   pictureBox5->Enabled = true;
-		   pictureBox4->Image = imageList1->Images[1];
-		   pictureBox5->Image = imageList1->Images[25];
+		   
 	   }
 	   if ((button1->Text == "4" || button1->Text == "15" || button1->Text == "6") && (radioButton2->Checked == true) && !(pictureBox6->Focused))
 	   {
+		   if (secondChance) {
+			   radioButton2->BackColor = System::Drawing::Color::Red;
+			   if (button1->Text == "10" && radioButton2->Checked == true) {
+				   radioButton2->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+			   if (button1->Text == "5" && radioButton2->Checked == true) {
+				   radioButton2->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+			   if (button1->Text == "8" && radioButton2->Checked == true) {
+				   radioButton2->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+			   if (button1->Text == "14" && radioButton2->Checked == true) {
+				   radioButton2->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+		   }
 		   radioButton2->BackColor = System::Drawing::Color::Red;
-		   pictureBox1->Image = imageList1->Images[8];
+		   String^ imagePath1 = "Images\\Picture01.png";
+		   System::Drawing::Image^ image1 = System::Drawing::Image::FromFile(imagePath1);
+		   this->pictureBox1->Image = image1;
+
+		   String^ imagePath4 = "Images\\50on50.jpg";
+		   System::Drawing::Image^ image4 = System::Drawing::Image::FromFile(imagePath4);
+		   this->pictureBox4->Image = image4;
+
+		   String^ imagePath5 = "Images\\PPLhelp.jpg";
+		   System::Drawing::Image^ image5 = System::Drawing::Image::FromFile(imagePath5);
+		   this->pictureBox5->Image = image5;
 		   iSlide = 0;
 		   button1->Enabled = true;
 		   button1->Text = "restart";
@@ -1311,13 +1546,41 @@ private: System::Void radioButton2_CheckedChanged(System::Object^ sender, System
 		   Question1();
 		   pictureBox4->Enabled = true;
 		   pictureBox5->Enabled = true;
-		   pictureBox4->Image = imageList1->Images[1];
-		   pictureBox5->Image = imageList1->Images[25];
+		   
 	   }
 
 	   if ((button1->Text == "6") && (radioButton2->Checked == true) && !(pictureBox6->Focused)) {
+		   if (secondChance) {
+			   radioButton2->BackColor = System::Drawing::Color::Red;
+			   if (button1->Text == "10" && radioButton2->Checked == true) {
+				   radioButton2->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+			   if (button1->Text == "5" && radioButton2->Checked == true) {
+				   radioButton2->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+			   if (button1->Text == "8" && radioButton2->Checked == true) {
+				   radioButton2->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+			   if (button1->Text == "14" && radioButton2->Checked == true) {
+				   radioButton2->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+		   }
 		   radioButton2->BackColor = System::Drawing::Color::Red;
-		   pictureBox1->Image = imageList1->Images[8];
+		   String^ imagePath1 = "Images\\Picture01.png";
+		   System::Drawing::Image^ image1 = System::Drawing::Image::FromFile(imagePath1);
+		   this->pictureBox1->Image = image1;
+
+		   String^ imagePath4 = "Images\\50on50.jpg";
+		   System::Drawing::Image^ image4 = System::Drawing::Image::FromFile(imagePath4);
+		   this->pictureBox4->Image = image4;
+
+		   String^ imagePath5 = "Images\\PPLhelp.jpg";
+		   System::Drawing::Image^ image5 = System::Drawing::Image::FromFile(imagePath5);
+		   this->pictureBox5->Image = image5;
 		   iSlide = 0;
 		   button1->Enabled = true;
 		   button1->Text = "restart";
@@ -1325,13 +1588,41 @@ private: System::Void radioButton2_CheckedChanged(System::Object^ sender, System
 		   Question1();
 		   pictureBox4->Enabled = true;
 		   pictureBox5->Enabled = true;
-		   pictureBox4->Image = imageList1->Images[1];
-		   pictureBox5->Image = imageList1->Images[25];
+		   
 	   }
 	   if ((button1->Text == "7" || button1->Text == "12" || button1->Text == "9") && (radioButton2->Checked == true) && !(pictureBox6->Focused))
 	   {
+		   if (secondChance) {
+			   radioButton2->BackColor = System::Drawing::Color::Red;
+			   if (button1->Text == "10" && radioButton2->Checked == true) {
+				   radioButton2->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+			   if (button1->Text == "5" && radioButton2->Checked == true) {
+				   radioButton2->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+			   if (button1->Text == "8" && radioButton2->Checked == true) {
+				   radioButton2->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+			   if (button1->Text == "14" && radioButton2->Checked == true) {
+				   radioButton2->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+		   }
 		   radioButton2->BackColor = System::Drawing::Color::Red;
-		   pictureBox1->Image = imageList1->Images[8];
+		   String^ imagePath1 = "Images\\Picture01.png";
+		   System::Drawing::Image^ image1 = System::Drawing::Image::FromFile(imagePath1);
+		   this->pictureBox1->Image = image1;
+
+		   String^ imagePath4 = "Images\\50on50.jpg";
+		   System::Drawing::Image^ image4 = System::Drawing::Image::FromFile(imagePath4);
+		   this->pictureBox4->Image = image4;
+
+		   String^ imagePath5 = "Images\\PPLhelp.jpg";
+		   System::Drawing::Image^ image5 = System::Drawing::Image::FromFile(imagePath5);
+		   this->pictureBox5->Image = image5;
 		   iSlide = 0;
 		   button1->Enabled = true;
 		   button1->Text = "restart";
@@ -1339,13 +1630,41 @@ private: System::Void radioButton2_CheckedChanged(System::Object^ sender, System
 		   Question1();
 		   pictureBox4->Enabled = true;
 		   pictureBox5->Enabled = true;
-		   pictureBox4->Image = imageList1->Images[1];
-		   pictureBox5->Image = imageList1->Images[25];
+		   
 	   }
 	   if ((button1->Text == "13") && (radioButton2->Checked == true) && !(pictureBox6->Focused))
 	   {
+		   if (secondChance) {
+			   radioButton2->BackColor = System::Drawing::Color::Red;
+			   if (button1->Text == "10" && radioButton2->Checked == true) {
+				   radioButton2->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+			   if (button1->Text == "5" && radioButton2->Checked == true) {
+				   radioButton2->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+			   if (button1->Text == "8" && radioButton2->Checked == true) {
+				   radioButton2->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+			   if (button1->Text == "14" && radioButton2->Checked == true) {
+				   radioButton2->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+		   }
 		   radioButton2->BackColor = System::Drawing::Color::Red;
-		   pictureBox1->Image = imageList1->Images[8];
+		   String^ imagePath1 = "Images\\Picture01.png";
+		   System::Drawing::Image^ image1 = System::Drawing::Image::FromFile(imagePath1);
+		   this->pictureBox1->Image = image1;
+
+		   String^ imagePath4 = "Images\\50on50.jpg";
+		   System::Drawing::Image^ image4 = System::Drawing::Image::FromFile(imagePath4);
+		   this->pictureBox4->Image = image4;
+
+		   String^ imagePath5 = "Images\\PPLhelp.jpg";
+		   System::Drawing::Image^ image5 = System::Drawing::Image::FromFile(imagePath5);
+		   this->pictureBox5->Image = image5;
 		   iSlide = 0;
 		   button1->Enabled = true;
 		   button1->Text = "restart";
@@ -1353,8 +1672,7 @@ private: System::Void radioButton2_CheckedChanged(System::Object^ sender, System
 		   Question1();
 		   pictureBox4->Enabled = true;
 		   pictureBox5->Enabled = true;
-		   pictureBox4->Image = imageList1->Images[1];
-		   pictureBox5->Image = imageList1->Images[25];
+		   
 	   }
 
 
@@ -1396,8 +1714,33 @@ private: System::Void radioButton3_CheckedChanged(System::Object^ sender, System
 	   //=========================InCorrect Answer=============================
 	   if ((button1->Text == "4" || button1->Text == "3") && (radioButton3->Checked == true) && !(pictureBox6->Focused))
 	   {
+		   if (secondChance) {
+			   radioButton3->BackColor = System::Drawing::Color::Red;
+			   if (button1->Text == "2" && radioButton3->Checked == true) {
+				   radioButton3->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+			   if (button1->Text == "6" && radioButton3->Checked == true) {
+				   radioButton3->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+			   if (button1->Text == "1" && radioButton3->Checked == true) {
+				   radioButton3->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+		   }
 		   radioButton3->BackColor = System::Drawing::Color::Red;
-		   pictureBox1->Image = imageList1->Images[8];
+		   String^ imagePath1 = "Images\\Picture01.png";
+		   System::Drawing::Image^ image1 = System::Drawing::Image::FromFile(imagePath1);
+		   this->pictureBox1->Image = image1;
+
+		   String^ imagePath4 = "Images\\50on50.jpg";
+		   System::Drawing::Image^ image4 = System::Drawing::Image::FromFile(imagePath4);
+		   this->pictureBox4->Image = image4;
+
+		   String^ imagePath5 = "Images\\PPLhelp.jpg";
+		   System::Drawing::Image^ image5 = System::Drawing::Image::FromFile(imagePath5);
+		   this->pictureBox5->Image = image5;
 		   iSlide = 0;
 		   button1->Enabled = true;
 		   button1->Text = "restart";
@@ -1405,13 +1748,37 @@ private: System::Void radioButton3_CheckedChanged(System::Object^ sender, System
 		   Question1();
 		   pictureBox4->Enabled = true;
 		   pictureBox5->Enabled = true;
-		   pictureBox4->Image = imageList1->Images[1];
-		   pictureBox5->Image = imageList1->Images[25];
+		   
 	   }
 	   if ((button1->Text == "15" || button1->Text == "5") && (radioButton3->Checked == true) && !(pictureBox6->Focused))
 	   {
+		   if (secondChance) {
+			   radioButton3->BackColor = System::Drawing::Color::Red;
+			   if (button1->Text == "2" && radioButton3->Checked == true) {
+				   radioButton3->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+			   if (button1->Text == "6" && radioButton3->Checked == true) {
+				   radioButton3->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+			   if (button1->Text == "1" && radioButton3->Checked == true) {
+				   radioButton3->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+		   }
 		   radioButton3->BackColor = System::Drawing::Color::Red;
-		   pictureBox1->Image = imageList1->Images[8];
+		   String^ imagePath1 = "Images\\Picture01.png";
+		   System::Drawing::Image^ image1 = System::Drawing::Image::FromFile(imagePath1);
+		   this->pictureBox1->Image = image1;
+
+		   String^ imagePath4 = "Images\\50on50.jpg";
+		   System::Drawing::Image^ image4 = System::Drawing::Image::FromFile(imagePath4);
+		   this->pictureBox4->Image = image4;
+
+		   String^ imagePath5 = "Images\\PPLhelp.jpg";
+		   System::Drawing::Image^ image5 = System::Drawing::Image::FromFile(imagePath5);
+		   this->pictureBox5->Image = image5;
 		   iSlide = 0;
 		   button1->Enabled = true;
 		   button1->Text = "restart";
@@ -1419,13 +1786,37 @@ private: System::Void radioButton3_CheckedChanged(System::Object^ sender, System
 		   Question1();
 		   pictureBox4->Enabled = true;
 		   pictureBox5->Enabled = true;
-		   pictureBox4->Image = imageList1->Images[1];
-		   pictureBox5->Image = imageList1->Images[25];
+		   
 	   }
 
 	   if ((button1->Text == "10") && (radioButton3->Checked == true) && !(pictureBox6->Focused)) {
+		   if (secondChance) {
+			   radioButton3->BackColor = System::Drawing::Color::Red;
+			   if (button1->Text == "2" && radioButton3->Checked == true) {
+				   radioButton3->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+			   if (button1->Text == "6" && radioButton3->Checked == true) {
+				   radioButton3->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+			   if (button1->Text == "1" && radioButton3->Checked == true) {
+				   radioButton3->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+		   }
 		   radioButton3->BackColor = System::Drawing::Color::Red;
-		   pictureBox1->Image = imageList1->Images[8];
+		   String^ imagePath1 = "Images\\Picture01.png";
+		   System::Drawing::Image^ image1 = System::Drawing::Image::FromFile(imagePath1);
+		   this->pictureBox1->Image = image1;
+
+		   String^ imagePath4 = "Images\\50on50.jpg";
+		   System::Drawing::Image^ image4 = System::Drawing::Image::FromFile(imagePath4);
+		   this->pictureBox4->Image = image4;
+
+		   String^ imagePath5 = "Images\\PPLhelp.jpg";
+		   System::Drawing::Image^ image5 = System::Drawing::Image::FromFile(imagePath5);
+		   this->pictureBox5->Image = image5;
 		   iSlide = 0;
 		   button1->Enabled = true;
 		   button1->Text = "restart";
@@ -1433,13 +1824,37 @@ private: System::Void radioButton3_CheckedChanged(System::Object^ sender, System
 		   Question1();
 		   pictureBox4->Enabled = true;
 		   pictureBox5->Enabled = true;
-		   pictureBox4->Image = imageList1->Images[1];
-		   pictureBox5->Image = imageList1->Images[25];
+		   
 	   }
 	   if ((button1->Text == "7" || button1->Text == "8" || button1->Text == "9") && (radioButton3->Checked == true) && !(pictureBox6->Focused))
 	   {
+		   if (secondChance) {
+			   radioButton3->BackColor = System::Drawing::Color::Red;
+			   if (button1->Text == "2" && radioButton3->Checked == true) {
+				   radioButton3->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+			   if (button1->Text == "6" && radioButton3->Checked == true) {
+				   radioButton3->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+			   if (button1->Text == "1" && radioButton3->Checked == true) {
+				   radioButton3->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+		   }
 		   radioButton3->BackColor = System::Drawing::Color::Red;
-		   pictureBox1->Image = imageList1->Images[8];
+		   String^ imagePath1 = "Images\\Picture01.png";
+		   System::Drawing::Image^ image1 = System::Drawing::Image::FromFile(imagePath1);
+		   this->pictureBox1->Image = image1;
+
+		   String^ imagePath4 = "Images\\50on50.jpg";
+		   System::Drawing::Image^ image4 = System::Drawing::Image::FromFile(imagePath4);
+		   this->pictureBox4->Image = image4;
+
+		   String^ imagePath5 = "Images\\PPLhelp.jpg";
+		   System::Drawing::Image^ image5 = System::Drawing::Image::FromFile(imagePath5);
+		   this->pictureBox5->Image = image5;
 		   iSlide = 0;
 		   button1->Enabled = true;
 		   button1->Text = "restart";
@@ -1447,12 +1862,36 @@ private: System::Void radioButton3_CheckedChanged(System::Object^ sender, System
 		   Question1();
 		   pictureBox4->Enabled = true;
 		   pictureBox5->Enabled = true;
-		   pictureBox4->Image = imageList1->Images[1];
-		   pictureBox5->Image = imageList1->Images[25];
+		   
 	   }
 	   if ((button1->Text == "11" || button1->Text == "13") && (radioButton3->Checked == true) && !(pictureBox6->Focused)) {
+		   if (secondChance) {
+			   radioButton3->BackColor = System::Drawing::Color::Red;
+			   if (button1->Text == "2" && radioButton3->Checked == true) {
+				   radioButton3->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+			   if (button1->Text == "6" && radioButton3->Checked == true) {
+				   radioButton3->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+			   if (button1->Text == "1" && radioButton3->Checked == true) {
+				   radioButton3->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+		   }
 		   radioButton3->BackColor = System::Drawing::Color::Red;
-		   pictureBox1->Image = imageList1->Images[8];
+		   String^ imagePath1 = "Images\\Picture01.png";
+		   System::Drawing::Image^ image1 = System::Drawing::Image::FromFile(imagePath1);
+		   this->pictureBox1->Image = image1;
+
+		   String^ imagePath4 = "Images\\50on50.jpg";
+		   System::Drawing::Image^ image4 = System::Drawing::Image::FromFile(imagePath4);
+		   this->pictureBox4->Image = image4;
+
+		   String^ imagePath5 = "Images\\PPLhelp.jpg";
+		   System::Drawing::Image^ image5 = System::Drawing::Image::FromFile(imagePath5);
+		   this->pictureBox5->Image = image5;
 		   iSlide = 0;
 		   button1->Enabled = true;
 		   button1->Text = "restart";
@@ -1460,12 +1899,36 @@ private: System::Void radioButton3_CheckedChanged(System::Object^ sender, System
 		   Question1();
 		   pictureBox4->Enabled = true;
 		   pictureBox5->Enabled = true;
-		   pictureBox4->Image = imageList1->Images[1];
-		   pictureBox5->Image = imageList1->Images[25];
+		   
 	   }
 	   if ((button1->Text == "12" || button1->Text == "14") && (radioButton3->Checked == true) && !(pictureBox6->Focused)) {
+		   if (secondChance) {
+			   radioButton3->BackColor = System::Drawing::Color::Red;
+			   if (button1->Text == "2" && radioButton3->Checked == true) {
+				   radioButton3->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+			   if (button1->Text == "6" && radioButton3->Checked == true) {
+				   radioButton3->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+			   if (button1->Text == "1" && radioButton3->Checked == true) {
+				   radioButton3->BackColor = System::Drawing::Color::Gold;
+				   button1->Enabled = true;
+			   }
+		   }
 		   radioButton3->BackColor = System::Drawing::Color::Red;
-		   pictureBox1->Image = imageList1->Images[8];
+		   String^ imagePath1 = "Images\\Picture01.png";
+		   System::Drawing::Image^ image1 = System::Drawing::Image::FromFile(imagePath1);
+		   this->pictureBox1->Image = image1;
+
+		   String^ imagePath4 = "Images\\50on50.jpg";
+		   System::Drawing::Image^ image4 = System::Drawing::Image::FromFile(imagePath4);
+		   this->pictureBox4->Image = image4;
+
+		   String^ imagePath5 = "Images\\PPLhelp.jpg";
+		   System::Drawing::Image^ image5 = System::Drawing::Image::FromFile(imagePath5);
+		   this->pictureBox5->Image = image5;
 		   iSlide = 0;
 		   button1->Enabled = true;
 		   button1->Text = "restart";
@@ -1473,8 +1936,7 @@ private: System::Void radioButton3_CheckedChanged(System::Object^ sender, System
 		   Question1();
 		   pictureBox4->Enabled = true;
 		   pictureBox5->Enabled = true;
-		   pictureBox4->Image = imageList1->Images[1];
-		   pictureBox5->Image = imageList1->Images[25];
+		   
 	   }
 
 
@@ -1501,8 +1963,33 @@ private: System::Void radioButton4_CheckedChanged(System::Object^ sender, System
 	//=========================InCorrect Answer=============================
 	if ((button1->Text == "1" || button1->Text == "2" || button1->Text == "3") && (radioButton4->Checked == true) && !(pictureBox6->Focused))
 	{
+		if (secondChance) {
+			radioButton4->BackColor = System::Drawing::Color::Red;
+			if (button1->Text == "7" && radioButton4->Checked == true) {
+				radioButton4->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+			if (button1->Text == "12" && radioButton4->Checked == true) {
+				radioButton4->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+			if (button1->Text == "15" && radioButton4->Checked == true) {
+				radioButton4->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+		}
 		radioButton4->BackColor = System::Drawing::Color::Red;
-		pictureBox1->Image = imageList1->Images[8];
+		String^ imagePath1 = "Images\\Picture01.png";
+		System::Drawing::Image^ image1 = System::Drawing::Image::FromFile(imagePath1);
+		this->pictureBox1->Image = image1;
+
+		String^ imagePath4 = "Images\\50on50.jpg";
+		System::Drawing::Image^ image4 = System::Drawing::Image::FromFile(imagePath4);
+		this->pictureBox4->Image = image4;
+
+		String^ imagePath5 = "Images\\PPLhelp.jpg";
+		System::Drawing::Image^ image5 = System::Drawing::Image::FromFile(imagePath5);
+		this->pictureBox5->Image = image5;
 		iSlide = 0;
 		button1->Enabled = true;
 		button1->Text = "restart";
@@ -1510,13 +1997,37 @@ private: System::Void radioButton4_CheckedChanged(System::Object^ sender, System
 		Question1();
 		pictureBox4->Enabled = true;
 		pictureBox5->Enabled = true;
-		pictureBox4->Image = imageList1->Images[1];
-		pictureBox5->Image = imageList1->Images[25];
+		
 	}
 	if ((button1->Text == "4" || button1->Text == "5") && (radioButton4->Checked == true) && !(pictureBox6->Focused))
 	{
+		if (secondChance) {
+			radioButton4->BackColor = System::Drawing::Color::Red;
+			if (button1->Text == "7" && radioButton4->Checked == true) {
+				radioButton4->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+			if (button1->Text == "12" && radioButton4->Checked == true) {
+				radioButton4->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+			if (button1->Text == "15" && radioButton4->Checked == true) {
+				radioButton4->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+		}
 		radioButton4->BackColor = System::Drawing::Color::Red;
-		pictureBox1->Image = imageList1->Images[8];
+		String^ imagePath1 = "Images\\Picture01.png";
+		System::Drawing::Image^ image1 = System::Drawing::Image::FromFile(imagePath1);
+		this->pictureBox1->Image = image1;
+
+		String^ imagePath4 = "Images\\50on50.jpg";
+		System::Drawing::Image^ image4 = System::Drawing::Image::FromFile(imagePath4);
+		this->pictureBox4->Image = image4;
+
+		String^ imagePath5 = "Images\\PPLhelp.jpg";
+		System::Drawing::Image^ image5 = System::Drawing::Image::FromFile(imagePath5);
+		this->pictureBox5->Image = image5;
 		iSlide = 0;
 		button1->Enabled = true;
 		button1->Text = "restart";
@@ -1524,13 +2035,37 @@ private: System::Void radioButton4_CheckedChanged(System::Object^ sender, System
 		Question1();
 		pictureBox4->Enabled = true;
 		pictureBox5->Enabled = true;
-		pictureBox4->Image = imageList1->Images[1];
-		pictureBox5->Image = imageList1->Images[25];
+		
 	}
 
 	if ((button1->Text == "6") && (radioButton4->Checked == true) && !(pictureBox6->Focused)) {
+		if (secondChance) {
+			radioButton4->BackColor = System::Drawing::Color::Red;
+			if (button1->Text == "7" && radioButton4->Checked == true) {
+				radioButton4->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+			if (button1->Text == "12" && radioButton4->Checked == true) {
+				radioButton4->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+			if (button1->Text == "15" && radioButton4->Checked == true) {
+				radioButton4->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+		}
 		radioButton4->BackColor = System::Drawing::Color::Red;
-		pictureBox1->Image = imageList1->Images[8];
+		String^ imagePath1 = "Images\\Picture01.png";
+		System::Drawing::Image^ image1 = System::Drawing::Image::FromFile(imagePath1);
+		this->pictureBox1->Image = image1;
+
+		String^ imagePath4 = "Images\\50on50.jpg";
+		System::Drawing::Image^ image4 = System::Drawing::Image::FromFile(imagePath4);
+		this->pictureBox4->Image = image4;
+
+		String^ imagePath5 = "Images\\PPLhelp.jpg";
+		System::Drawing::Image^ image5 = System::Drawing::Image::FromFile(imagePath5);
+		this->pictureBox5->Image = image5;
 		iSlide = 0;
 		button1->Enabled = true;
 		button1->Text = "restart";
@@ -1538,13 +2073,37 @@ private: System::Void radioButton4_CheckedChanged(System::Object^ sender, System
 		Question1();
 		pictureBox4->Enabled = true;
 		pictureBox5->Enabled = true;
-		pictureBox4->Image = imageList1->Images[1];
-		pictureBox5->Image = imageList1->Images[25];
+		
 	}
 	if ((button1->Text == "10" || button1->Text == "8" || button1->Text == "9") && (radioButton4->Checked == true) && !(pictureBox6->Focused))
 	{
+		if (secondChance) {
+			radioButton4->BackColor = System::Drawing::Color::Red;
+			if (button1->Text == "7" && radioButton4->Checked == true) {
+				radioButton4->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+			if (button1->Text == "12" && radioButton4->Checked == true) {
+				radioButton4->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+			if (button1->Text == "15" && radioButton4->Checked == true) {
+				radioButton4->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+		}
 		radioButton4->BackColor = System::Drawing::Color::Red;
-		pictureBox1->Image = imageList1->Images[8];
+		String^ imagePath1 = "Images\\Picture01.png";
+		System::Drawing::Image^ image1 = System::Drawing::Image::FromFile(imagePath1);
+		this->pictureBox1->Image = image1;
+
+		String^ imagePath4 = "Images\\50on50.jpg";
+		System::Drawing::Image^ image4 = System::Drawing::Image::FromFile(imagePath4);
+		this->pictureBox4->Image = image4;
+
+		String^ imagePath5 = "Images\\PPLhelp.jpg";
+		System::Drawing::Image^ image5 = System::Drawing::Image::FromFile(imagePath5);
+		this->pictureBox5->Image = image5;
 		iSlide = 0;
 		button1->Enabled = true;
 		button1->Text = "restart";
@@ -1552,12 +2111,36 @@ private: System::Void radioButton4_CheckedChanged(System::Object^ sender, System
 		Question1();
 		pictureBox4->Enabled = true;
 		pictureBox5->Enabled = true;
-		pictureBox4->Image = imageList1->Images[1];
-		pictureBox5->Image = imageList1->Images[25];
+		
 	}
 	if ((button1->Text == "11" || button1->Text == "13") && (radioButton4->Checked == true) && !(pictureBox6->Focused)) {
+		if (secondChance) {
+			radioButton4->BackColor = System::Drawing::Color::Red;
+			if (button1->Text == "7" && radioButton4->Checked == true) {
+				radioButton4->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+			if (button1->Text == "12" && radioButton4->Checked == true) {
+				radioButton4->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+			if (button1->Text == "15" && radioButton4->Checked == true) {
+				radioButton4->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+		}
 		radioButton4->BackColor = System::Drawing::Color::Red;
-		pictureBox1->Image = imageList1->Images[8];
+		String^ imagePath1 = "Images\\Picture01.png";
+		System::Drawing::Image^ image1 = System::Drawing::Image::FromFile(imagePath1);
+		this->pictureBox1->Image = image1;
+
+		String^ imagePath4 = "Images\\50on50.jpg";
+		System::Drawing::Image^ image4 = System::Drawing::Image::FromFile(imagePath4);
+		this->pictureBox4->Image = image4;
+
+		String^ imagePath5 = "Images\\PPLhelp.jpg";
+		System::Drawing::Image^ image5 = System::Drawing::Image::FromFile(imagePath5);
+		this->pictureBox5->Image = image5;
 		iSlide = 0;
 		button1->Enabled = true;
 		button1->Text = "restart";
@@ -1565,21 +2148,48 @@ private: System::Void radioButton4_CheckedChanged(System::Object^ sender, System
 		Question1();
 		pictureBox4->Enabled = true;
 		pictureBox5->Enabled = true;
-		pictureBox4->Image = imageList1->Images[1];
-		pictureBox5->Image = imageList1->Images[25];
+		
 	}
 	if ((button1->Text == "14") && (radioButton4->Checked == true) && !(pictureBox6->Focused)) {
-		radioButton4->BackColor = System::Drawing::Color::Red;
-		pictureBox1->Image = imageList1->Images[8];
-		iSlide = 0;
-		button1->Enabled = true;
-		button1->Text = "restart";
+		if (secondChance) {
+			radioButton4->BackColor = System::Drawing::Color::Red;
+			if (button1->Text == "7" && radioButton4->Checked == true) {
+				radioButton4->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+			if (button1->Text == "12" && radioButton4->Checked == true) {
+				radioButton4->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+			if (button1->Text == "15" && radioButton4->Checked == true) {
+				radioButton4->BackColor = System::Drawing::Color::Gold;
+				button1->Enabled = true;
+			}
+		}
 		
-		Question1();
-		pictureBox4->Enabled = true;
-		pictureBox5->Enabled = true;
-		pictureBox4->Image = imageList1->Images[1];
-		pictureBox5->Image = imageList1->Images[25];
+		
+
+
+			radioButton4->BackColor = System::Drawing::Color::Red;
+			String^ imagePath1 = "Images\\Picture01.png";
+			System::Drawing::Image^ image1 = System::Drawing::Image::FromFile(imagePath1);
+			this->pictureBox1->Image = image1;
+
+			String^ imagePath4 = "Images\\50on50.jpg";
+			System::Drawing::Image^ image4 = System::Drawing::Image::FromFile(imagePath4);
+			this->pictureBox4->Image = image4;
+
+			String^ imagePath5 = "Images\\PPLhelp.jpg";
+			System::Drawing::Image^ image5 = System::Drawing::Image::FromFile(imagePath5);
+			this->pictureBox5->Image = image5;
+			iSlide = 0;
+			button1->Enabled = true;
+			button1->Text = "restart";
+
+			Question1();
+			pictureBox4->Enabled = true;
+			pictureBox5->Enabled = true;
+		
 	}
 
 
@@ -1587,82 +2197,17 @@ private: System::Void radioButton4_CheckedChanged(System::Object^ sender, System
 
 }
 private: System::Void pictureBox6_Click(System::Object^ sender, System::EventArgs^ e) {
-	//pictureBox6->Image = imageList1->Images[6];
-	/*if ((button1->Text == "1" || button1->Text == "2" || button1->Text == "5") && (radioButton1->Checked == true)) {
-		radioButton1->BackColor = System::Drawing::Color::Red;
-		clickCount++;
-	}
-	if ((button1->Text == "6" || button1->Text == "7" || button1->Text == "8") && (radioButton1->Checked == true)) {
-		radioButton1->BackColor = System::Drawing::Color::Red;
-		clickCount++;
-	}
-	if ((button1->Text == "10" || button1->Text == "12" || button1->Text == "14") && (radioButton1->Checked == true)) {
-		radioButton1->BackColor = System::Drawing::Color::Red;
-		clickCount++;
-	}
-	if ((button1->Text == "15") && (radioButton1->Checked == true)) {
-		radioButton1->BackColor = System::Drawing::Color::Red;
-		clickCount++;
-	}
-	if ((button1->Text == "1" || button1->Text == "2" || button1->Text == "3") && (radioButton2->Checked == true)) {
-		radioButton1->BackColor = System::Drawing::Color::Red;
-		clickCount++;
-	}
-	if ((button1->Text == "6" || button1->Text == "7" || button1->Text == "4") && (radioButton2->Checked == true)) {
-		radioButton1->BackColor = System::Drawing::Color::Red;
-		clickCount++;
-	}
-	if ((button1->Text == "9" || button1->Text == "12" || button1->Text == "11") && (radioButton2->Checked == true)) {
-		radioButton1->BackColor = System::Drawing::Color::Red;
-		clickCount++;
-	}
-	if ((button1->Text == "15" || button1->Text == "13") && (radioButton2->Checked == true)) {
-		radioButton1->BackColor = System::Drawing::Color::Red;
-		clickCount++;
-	}
-	if ((button1->Text == "3" || button1->Text == "4" || button1->Text == "5") && (radioButton3->Checked == true)) {
-		radioButton1->BackColor = System::Drawing::Color::Red;
-		clickCount++;
-	}
-	if ((button1->Text == "9" || button1->Text == "7" || button1->Text == "8") && (radioButton3->Checked == true)) {
-		radioButton1->BackColor = System::Drawing::Color::Red;
-		clickCount++;
-	}
-	if ((button1->Text == "10" || button1->Text == "12" || button1->Text == "14") && (radioButton3->Checked == true)) {
-		radioButton1->BackColor = System::Drawing::Color::Red;
-		clickCount++;
-	}
-	if ((button1->Text == "15" || button1->Text == "11" || button1->Text == "13") && (radioButton3->Checked == true)) {
-		radioButton1->BackColor = System::Drawing::Color::Red;
-		clickCount++;
-	}
-	if ((button1->Text == "1" || button1->Text == "2" || button1->Text == "5") && (radioButton4->Checked == true)) {
-		radioButton1->BackColor = System::Drawing::Color::Red;
-		clickCount++;
-	}
-	if ((button1->Text == "6" || button1->Text == "3" || button1->Text == "8") && (radioButton4->Checked == true)) {
-		radioButton1->BackColor = System::Drawing::Color::Red;
-		clickCount++;
-	}
-	if ((button1->Text == "10" || button1->Text == "4" || button1->Text == "14") && (radioButton4->Checked == true)) {
-		radioButton1->BackColor = System::Drawing::Color::Red;
-		clickCount++;
-	}
-	if ((button1->Text == "9" || button1->Text == "11" || button1->Text == "13") && (radioButton4->Checked == true)) {
-		radioButton1->BackColor = System::Drawing::Color::Red;
-		clickCount++;
-	}
 	
-	if (clickCount == 2) 
-	{
-
-	}*/
-
-
+	String^ imagePath6x = "Images\\2xX.png";
+	System::Drawing::Image^ image6x = System::Drawing::Image::FromFile(imagePath6x);
+	this->pictureBox6->Image = image6x;
+	bool secondChanse = true;
 }
 private: System::Void pictureBox5_Click(System::Object^ sender, System::EventArgs^ e) {
 	
-	pictureBox5->Image = imageList1->Images[4];
+	String^ imagePath5x = "Images\\PPLhelpx.jpg";
+	System::Drawing::Image^ image5x = System::Drawing::Image::FromFile(imagePath5x);
+	this->pictureBox5->Image = image5x;
 	
 	if (button1->Text == "1") 
 	{

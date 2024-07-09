@@ -1,6 +1,6 @@
 #pragma once
 #include "Form1.h"
-#include "Form4.h"
+
 
 namespace CppCLRWinFormsProject {
 
@@ -20,6 +20,7 @@ namespace CppCLRWinFormsProject {
 		Form00(void)
 		{
 			InitializeComponent();
+			LoadImages();
 			//
 			//TODO: Add the constructor code here
 			//
@@ -63,7 +64,7 @@ namespace CppCLRWinFormsProject {
 			// pictureBox1
 			// 
 			this->pictureBox1->BackColor = System::Drawing::SystemColors::ButtonFace;
-			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			//this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
 			this->pictureBox1->Location = System::Drawing::Point(534, 178);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(387, 92);
@@ -87,6 +88,11 @@ namespace CppCLRWinFormsProject {
 
 		}
 #pragma endregion
+	private: System::Void LoadImages() {
+		String^ imagePath1 = "Images\\playgame.png";
+		System::Drawing::Image^ image1 = System::Drawing::Image::FromFile(imagePath1);
+		this->pictureBox1->Image = image1;
+	}
 	private: System::Void Form00_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -94,7 +100,7 @@ namespace CppCLRWinFormsProject {
 		this->Hide();
 		Form1^ form1 = gcnew Form1();
 		form1->ShowDialog();
-		this->Show();
+		
 	}
 	};
 }
