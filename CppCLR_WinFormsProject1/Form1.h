@@ -1,6 +1,17 @@
 #pragma once
 #include "Form2.h"
+#include <vector>
+#include <vcclr.h>
 #include <string>
+#include <iostream>
+#include <Windows.h>
+#include <fstream>
+#include <ctime>
+#include <msclr\marshal_cppstd.h>
+#include <Windows.h>
+#include <fstream>
+
+
 
 
 
@@ -14,7 +25,7 @@ namespace CppCLRWinFormsProject {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	
-
+	
 	/// <summary>
 	/// Summary for Form1
 	/// </summary>
@@ -25,6 +36,7 @@ namespace CppCLRWinFormsProject {
 		{
 			InitializeComponent();
 			LoadImages();
+			
 			//
 			//TODO: Add the constructor code here
 			//
@@ -33,7 +45,14 @@ namespace CppCLRWinFormsProject {
 			isRunning = false;
 			elapsedSeconds = 0;
 			
-			
+			/*questionFunctions = gcnew array<QuestionFunction>(15) {
+				&Form1::Question1, & Form1::Question2, & Form1::Question3,
+					& Form1::Question4, & Form1::Question5, & Form1::Question6,
+					& Form1::Question7, & Form1::Question8, & Form1::Question9,
+					& Form1::Question10, & Form1::Question11, & Form1::Question12,
+					& Form1::Question13, & Form1::Question14, & Form1::Question15
+			};*/
+
 		}
 		
 		
@@ -47,12 +66,14 @@ namespace CppCLRWinFormsProject {
 			{
 				delete components;
 			}
+			
 		}
 
 
 
 
 
+	
 
 
 
@@ -73,8 +94,11 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::PictureBox^ pictureBox3;
 
 
-
-
+	private:
+		TextBox^ nameTextBox;
+		Button^ enterButton;
+	//private:
+		//array<QuestionFunction>^ questionFunctions;
 
 
 
@@ -94,7 +118,10 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::RadioButton^ radioButton4;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label2;
-private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::Label^ label4;
+
+	private: System::Windows::Forms::Label^ labelUserName;
+
 
 
 
@@ -415,12 +442,22 @@ private: System::Windows::Forms::Label^ label4;
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
+
 		}
+
+		
+		
 #pragma endregion
 		int iSlide;
 		int clickCount = 0;
 		int money = 0;
+		time_t seesionTime;
+		int currentQuestionIndex;
 		bool secondChance = false;
+		bool min2 = true;
+		bool helps = true;
+		System::String^ playerName;
+		int sessionTime, questionNumber;
 private:
 	System::Drawing::Image^ image11;
 	System::Drawing::Image^ image12;
@@ -438,11 +475,18 @@ private:
 	System::Drawing::Image^ image114;
 	System::Drawing::Image^ image115;
 	
-		
+	
+
+	
+
 private: System::Void LoadImages() {
 	String^ imagePath1 = "Images\\Picture01.png";
 	System::Drawing::Image^ image1 = System::Drawing::Image::FromFile(imagePath1);
 	this->pictureBox1->Image = image1;
+
+	String^ imagePath2 = "Images\\Layout.png";
+	System::Drawing::Image^ image2 = System::Drawing::Image::FromFile(imagePath2);
+	this->pictureBox2->Image = image2;
 
 	String^ imagePath3 = "Images\\Icon.jpg";
 	System::Drawing::Image^ image3 = System::Drawing::Image::FromFile(imagePath3);
@@ -495,6 +539,58 @@ private: System::Void LoadImages() {
 }
 
 
+	   /*void SaveGameState(System::String^ playerName, int money, int sessionTime, int questionNumber) {
+		   // Открываем файл для записи
+		   std::ofstream outFile("gamestate.txt");
+		   if (outFile.is_open()) {
+			   // Преобразуем System::String^ в std::string
+			   std::string playerNameStr = msclr::interop::marshal_as<std::string>(playerName);
+
+			   // Записываем данные в файл
+			   outFile << playerNameStr << std::endl;
+			   outFile << money << std::endl;
+			   outFile << sessionTime << std::endl;
+			   outFile << questionNumber << std::endl;
+
+			   // Закрываем файл
+			   outFile.close();
+		   }
+	   }
+
+	   void LoadGameState(System::String^% playerName, int% money, int% sessionTime) {
+		   // Открываем файл для чтения
+		   std::ifstream inFile("gamestate.txt");
+		   if (inFile.is_open()) {
+			   std::string playerNameStr;
+			   std::getline(inFile, playerNameStr);
+
+			   // Преобразуем std::string в System::String^
+			   playerName = gcnew System::String(playerNameStr.c_str());
+
+			   inFile >> money;
+			   inFile >> sessionTime;
+			   inFile >> questionNumber;
+
+			   // Закрываем файл
+			   inFile.close();
+		   }
+	   }
+	   private: System::Void Form1_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
+		   SaveGameState(playerName, money, sessionTime );
+	   }
+
+			  // Пример загрузки при запуске
+	private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
+		System::String^ playerName;
+		int money, sessionTime, questionNumber;
+		LoadGameState(playerName, money, sessionTime, questionNumber);
+
+		// Устанавливаем загруженные данные
+		this->playerName = playerName;
+		this->money = money;
+		this->sessionTime = sessionTime;
+		
+	}*/
 	private: System::Void timer_Tick(System::Object^ sender, System::EventArgs^ e) {
 		this->elapsedSeconds++;
 		int hours = this->elapsedSeconds / 3600;
@@ -652,7 +748,7 @@ private: System::Void Question1() {
 
 }
 private: System::Void Question2() {
-	label1->Text = "What is 8 + 6";
+	label1->Text = "What is 7 + 7";
 	radioButton1->Text = "A: 13";
 	radioButton2->Text = "B: 15";
 	radioButton3->Text = "C: 14";
@@ -802,58 +898,72 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	if (button1->Text == "1") {
 		money = 100;
 		label2->Text = "$100";
+		questionNumber = 1;
 	}
 	if (button1->Text == "2") {
 		money = 200;
 		label2->Text = "$200";
+		questionNumber = 2;
 	}
 	if (button1->Text == "3") {
 		money = 300;
 		label2->Text = "$300";
+		questionNumber = 3;
 	}
 	if (button1->Text == "4") {
 		money = 500;
 		label2->Text = "$500";
+		questionNumber = 4;
 	}
 	if (button1->Text == "5") {
 		money = 1000;
 		label2->Text = "$1000";
+		questionNumber = 5;
 	}
 	if (button1->Text == "6") {
 		money = 2000;
 		label2->Text = "$2000";
+		questionNumber = 6;
 	}
 	if (button1->Text == "7") {
 		money = 4000;
 		label2->Text = "$4000";
+		questionNumber = 7;
 	}
 	if (button1->Text == "8") {
 		money = 8000;
 		label2->Text = "$8000";
+		questionNumber = 8;
 	}
 	if (button1->Text == "9") {
 		money = 16000;
 		label2->Text = "$16000";
+		questionNumber = 9;
 	}
 	if (button1->Text == "10") {
 		money = 32000;
 		label2->Text = "$32000";
+		questionNumber = 10;
 	}
 	if (button1->Text == "11") {
 		money = 64000;
 		label2->Text = "$64000";
+		questionNumber = 11;
 	}
 	if (button1->Text == "12") {
 		money = 125000;
 		label2->Text = "$125000";
+		questionNumber = 12;
 	}
 	if (button1->Text == "13") {
 		money = 250000;
 		label2->Text = "$250000";
+		questionNumber = 13;
 	}
 	if (button1->Text == "14") {
 		money = 500000;
 		label2->Text = "$500000";
+		questionNumber = 14;
 	}
 
 

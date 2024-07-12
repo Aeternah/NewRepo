@@ -1,0 +1,91 @@
+# Pack: General Programming
+What does HTML stand for?
+Hyper Text Markup Language
+Home Tool Markup Language
+Hyperlinks and Text Markup Language
+Hyperlinking Text Markup Language
+0
+Which company developed the Java programming language?
+Microsoft
+Google
+Sun Microsystems
+Apple
+2
+What does CSS stand for?
+Computer Style Sheets
+Creative Style Sheets
+Cascading Style Sheets
+Colorful Style Sheets
+2
+Which language is used for web development alongside HTML and CSS?
+Python
+Java
+JavaScript
+C++
+2
+What does SQL stand for?
+Structured Query Language
+Simple Query Language
+Structured Question Language
+Simple Question Language
+0
+Which programming language is known as the "mother of all languages"?
+C
+C++
+Java
+Python
+0
+Which company developed the C# programming language?
+Microsoft
+Apple
+Google
+IBM
+0
+What does IDE stand for?
+Integrated Development Environment
+Interactive Development Environment
+Internal Development Environment
+Integrated Debugging Environment
+0
+Which language is primarily used for artificial intelligence?
+Ruby
+JavaScript
+Python
+C
+2
+Which data structure uses LIFO (Last In, First Out) principle?
+Queue
+Array
+Stack
+Linked List
+2
+What is the main purpose of the 'for' loop?
+To repeat a block of code a specific number of times
+To create functions
+To define variables
+To handle exceptions
+0
+Which of the following is a NoSQL database?
+MySQL
+PostgreSQL
+MongoDB
+Oracle
+2
+What is the time complexity of binary search?
+O(n)
+O(log n)
+O(n log n)
+O(n^2)
+1
+What is a common use of the 'try' and 'except' block in Python?
+Defining variables
+Creating loops
+Handling exceptions
+Defining classes
+2
+Which protocol is used to retrieve emails from a server?
+HTTP
+SMTP
+POP3
+FTP
+2

@@ -1,0 +1,91 @@
+# Pack: Geography and History
+What is the capital of France?
+Paris
+London
+Berlin
+Madrid
+0
+Which continent is Egypt located on?
+Africa
+Asia
+Europe
+Australia
+0
+Which ocean is the largest in the world?
+Atlantic
+Indian
+Arctic
+Pacific
+3
+What is the longest river in the world?
+Amazon
+Nile
+Yangtze
+Mississippi
+1
+Which country has the largest population?
+India
+USA
+China
+Russia
+2
+In which country is the Great Wall located?
+China
+Japan
+South Korea
+India
+0
+What is the smallest country in the world?
+Vatican City
+Monaco
+Nauru
+San Marino
+0
+Which city is known as the "Eternal City"?
+Athens
+Rome
+Istanbul
+Jerusalem
+1
+Who was the first emperor of Rome?
+Nero
+Julius Caesar
+Augustus
+Constantine
+2
+Which empire was ruled by Alexander the Great?
+Roman
+Ottoman
+Persian
+Macedonian
+3
+What was the primary language of the Roman Empire?
+Greek
+Latin
+Hebrew
+Aramaic
+1
+Who discovered America in 1492?
+Christopher Columbus
+Ferdinand Magellan
+Vasco da Gama
+Hernán Cortés
+0
+What was the name of the ship that brought the Pilgrims to America in 1620?
+Santa Maria
+Mayflower
+Pinta
+Nina
+1
+Which war was fought between the North and South regions in the United States?
+World War I
+American Civil War
+Revolutionary War
+Vietnam War
+1
+Who was the first President of the United States?
+Abraham Lincoln
+Thomas Jefferson
+John Adams
+George Washington
+3
